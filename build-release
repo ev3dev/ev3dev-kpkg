@@ -1,0 +1,22 @@
+#!/bin/sh -e
+
+if [ ! -z "$1" ]
+then
+    REVISION="$1"
+else
+    REVISION="0"
+fi
+
+cd ev3dev-kernel
+make ARCH=arm distclean
+make ARCH=arm defconfig ev3dev_defconfig
+LOCALVERSION="" DEB_HOST_ARCH=armel MODULE_LOC=../ev3dev-modules \
+    make-kpkg --rootcmd fakeroot --overlay-dir ../overlay \
+    --arch arm --cross-compile /opt/arm-2011.03/bin/arm-none-eabi- \
+    --initrd --revision $REVISION --jobs 6 \
+    kernel_image kernel_headers modules
+dpkg-genchanges -b > ../ev3dev-kernel.changes
+cd ..
+debsign *.changes
+dupload -f --to ev3dev *.changes
+rm -f *.deb *.changes *.upload
