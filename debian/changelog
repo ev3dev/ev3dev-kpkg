@@ -1,0 +1,13 @@
+linux-source-3.3.0-2-ev3dev (0) stable; urgency=low
+
+  * Fixed signed vs. unsigned data issue with UART sensors
+  * Fixed issues with USB 2.0 trying to run in OTG mode and
+    causing errors on host computers
+  * Add LVM support
+  * Fix bluetooth crash
+  * Add separate sysfs attribute for listing modes in msensor class
+  * Fix msensor class decimal places
+  * Fix issues with sensors not being detected on boot
+  * Enable uinput and video and usb audio kernel modules
+
+ -- David Lechner <david@lechnology.com>  Mon, 19 May 2014 14:06:37 -0500

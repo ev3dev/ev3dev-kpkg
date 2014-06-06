@@ -1,4 +1,6 @@
-#!/bin/sh -e
+#!/bin/bash
+
+set -e
 
 if [ ! -z "$1" ]
 then
@@ -7,16 +9,16 @@ else
     REVISION="0"
 fi
 
-cd ev3dev-kernel
+cd kernel
 make ARCH=arm distclean
 make ARCH=arm defconfig ev3dev_defconfig
-LOCALVERSION="" DEB_HOST_ARCH=armel MODULE_LOC=../ev3dev-modules \
-    make-kpkg --rootcmd fakeroot --overlay-dir ../overlay \
+LOCALVERSION="" DEB_HOST_ARCH=armel MODULE_LOC=../modules \
+    make-kpkg --rootcmd fakeroot --overlay-dir ../debian \
     --arch arm --cross-compile /opt/arm-2011.03/bin/arm-none-eabi- \
-    --initrd --revision $REVISION --jobs 6 \
+    --initrd --revision $REVISION --jobs $(nproc) \
     kernel_image kernel_headers modules
 dpkg-genchanges -b > ../ev3dev-kernel.changes
 cd ..
 debsign *.changes
-dupload -f --to ev3dev *.changes
+dput ev3dev *.changes
 rm -f *.deb *.changes *.upload

@@ -1,6 +1,6 @@
-[submodule "ev3dev-kernel"]
-	path = ev3dev-kernel
+[submodule "kernel"]
+	path = kernel
 	url = git://github.com/mindboards/ev3dev-kernel.git
-[submodule "ev3dev-modules/rtl8188eu"]
-	path = ev3dev-modules/rtl8188eu
+[submodule "modules/rtl8188eu"]
+	path = modules/rtl8188eu
 	url = git://github.com/ev3dev-dpkg/rtl8188eu.git
