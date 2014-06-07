@@ -10,15 +10,20 @@ else
 fi
 
 cd kernel
+echo "---- CLEANING UP ----"
 make ARCH=arm distclean
+echo "---- LOADING DEFAULT CONFIGURATION ----"
 make ARCH=arm defconfig ev3dev_defconfig
+echo "---- BUILDING PACKAGES ----"
 LOCALVERSION="" DEB_HOST_ARCH=armel MODULE_LOC=../modules \
     make-kpkg --rootcmd fakeroot --overlay-dir ../debian \
     --arch arm --cross-compile /opt/arm-2011.03/bin/arm-none-eabi- \
     --initrd --revision $REVISION --jobs $(nproc) \
     kernel_image kernel_headers modules
+echo "---- GENERATING CHANGES FILE ----"
 dpkg-genchanges -b > ../ev3dev-kernel.changes
 cd ..
+echo "---- SIGNING AND UPLOADING ----"
 debsign *.changes
 dput ev3dev *.changes
 rm -f *.deb *.changes *.upload

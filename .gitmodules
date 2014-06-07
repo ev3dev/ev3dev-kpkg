@@ -4,3 +4,6 @@
 [submodule "modules/rtl8188eu"]
 	path = modules/rtl8188eu
 	url = git://github.com/ev3dev-dpkg/rtl8188eu.git
+[submodule "modules/rtl8192cu"]
+	path = modules/rtl8192cu
+	url = git://github.com/ev3dev-dpkg/rtl8192cu.git
