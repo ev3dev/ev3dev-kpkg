@@ -1,3 +1,10 @@
+linux-source-3.3.0-3-ev3dev (0) stable; urgency=medium
+
+  * Add rtl8192cu module from realtek (mainline module is broken)
+  * [rhempel] Major changes to tacho_motor sysfs class abi
+
+ -- David Lechner <david@lechnology.com>  Wed, 02 Jul 2014 22:04:35 -0500
+
 linux-source-3.3.0-2-ev3dev (0) stable; urgency=low
 
   * Fixed signed vs. unsigned data issue with UART sensors
