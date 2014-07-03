@@ -1,3 +1,9 @@
+linux-source-3.14.7-0-ev3dev (0) testing; urgency=low
+
+  * Massive upgrade to kernel 3.14.7 
+
+ -- David Lechner <david@lechnology.com>  Sat, 14 Jun 2014 14:11:25 -0500
+
 linux-source-3.3.0-2-ev3dev (0) stable; urgency=low
 
   * Fixed signed vs. unsigned data issue with UART sensors
