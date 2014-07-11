@@ -1,3 +1,9 @@
+linux-source-3.3.0-3-ev3dev (2) stable; urgency=medium
+
+  * [rhempel] Fixed up some really boneheaded bugs in the motor driver
+
+ -- David Lechner <david@lechnology.com>  Fri, 11 Jul 2014 14:14:29 -0500
+
 linux-source-3.3.0-3-ev3dev (0) stable; urgency=medium
 
   * Add rtl8192cu module from realtek (mainline module is broken)

@@ -10,13 +10,37 @@ else
     REPO="test"
 fi
 
-# TODO make sure kernel version matches package name
+PACKAGE_VERSION=$(dpkg-parsechangelog | sed -n -e 's/Source: linux-source-//p')
 
-cd kernel
+# make sure we are ignoring debian/control in all of the modules because
+# it is automatically updateed
+
+pushd modules
+
+for d in $(ls)
+do
+    pushd ${d}
+    git update-index --assume-unchanged debian/control
+    popd
+done
+
+popd
+
+pushd kernel
+
+KERNEL_VERSION=$(make ARCH=arm kernelversion)
+
+if [ "$PACKAGE_VERSION" != "$KERNEL_VERSION" ]; then
+    echo "Kernel version does not match debian/changelog"
+    exit 1
+fi
+
 echo "---- CLEANING UP ----"
 make ARCH=arm distclean
 echo "---- LOADING DEFAULT CONFIGURATION ----"
 make ARCH=arm defconfig ev3dev_defconfig
+# make sure kernel version (uname -v) matches debian revision
+echo ${REVISION} > .version
 echo "---- BUILDING PACKAGES ----"
 LOCALVERSION="" DEB_HOST_ARCH=armel MODULE_LOC=../modules \
     make-kpkg --rootcmd fakeroot --overlay-dir ../debian \
