@@ -1,3 +1,10 @@
+linux-source-3.3.0-3-ev3dev (3) stable; urgency=medium
+
+  * Fix kernel panic in ev3_tacho_motor due to calling sysfs_notify in
+    atomic context.
+
+ -- David Lechner <david@lechnology.com>  Sat, 12 Jul 2014 10:54:00 -0500
+
 linux-source-3.3.0-3-ev3dev (2) stable; urgency=medium
 
   * [rhempel] Fixed up some really boneheaded bugs in the motor driver
