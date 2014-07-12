@@ -1,3 +1,9 @@
+linux-source-3.14.7-1-ev3dev (1) testing; urgency=medium
+
+  * Merge tacho_motor changes from 3.3.0-3-ev3dev kernel
+
+ -- David Lechner <david@lechnology.com>  Sat, 12 Jul 2014 12:08:48 -0500
+
 linux-source-3.14.7-0-ev3dev (0) testing; urgency=low
 
   * Massive upgrade to kernel 3.14.7 
