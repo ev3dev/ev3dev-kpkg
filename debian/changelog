@@ -1,3 +1,9 @@
+linux-source-3.14.7-1-ev3dev (2) testing; urgency=medium
+
+  * Add Ralink wireless drivers
+
+ -- David Lechner <david@lechnology.com>  Sun, 13 Jul 2014 11:21:01 -0500
+
 linux-source-3.14.7-1-ev3dev (1) testing; urgency=medium
 
   * Merge tacho_motor changes from 3.3.0-3-ev3dev kernel
