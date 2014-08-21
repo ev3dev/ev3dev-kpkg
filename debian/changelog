@@ -1,3 +1,20 @@
+linux-source-3.14.17-1-ev3dev (1) testing; urgency=medium
+
+  * merge upstream stable kernel 3.14.17
+  * include rtl8188eu module (separate package)
+  * enable network bridge kernel module (CONFIG_BRIDGE)
+  * enable Apple USB Etherne kernel module
+
+ -- David Lechner <david@lechnology.com>  Wed, 20 Aug 2014 12:50:11 -0500
+
+linux-source-3.14.7-2-ev3dev-pre1 (1) testing; urgency=medium
+
+  * try different versioning scheme for prerelease
+  * disable realtek wifi modules
+  * add Atheros ar5523 module
+
+ -- David Lechner <david@lechnology.com>  Tue, 15 Jul 2014 17:09:03 -0500
+
 linux-source-3.14.7-1-ev3dev (2) testing; urgency=medium
 
   * Add Ralink wireless drivers

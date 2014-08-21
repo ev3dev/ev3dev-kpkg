@@ -37,7 +37,9 @@ if [ "${PACKAGE_VERSION}" != "${KERNEL_VERSION}" ]; then
     exit 1
 fi
 
-git tag "v${KERNEL_VERSION}_${REVISION//\~/pre}"
+if [ "${REPO}" -ne "test" ]; then
+    git tag "v${KERNEL_VERSION}_${REVISION//\~/pre}"
+fi
 
 echo "---- CLEANING UP ----"
 make ARCH=arm distclean
