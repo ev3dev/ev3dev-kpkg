@@ -37,14 +37,17 @@ if [ "${PACKAGE_VERSION}" != "${KERNEL_VERSION}" ]; then
     exit 1
 fi
 
-if [ "${REPO}" -ne "test" ]; then
+if [ "${REPO}" != "test" ]; then
     git tag "v${KERNEL_VERSION}_${REVISION//\~/pre}"
 fi
 
 echo "---- CLEANING UP ----"
 make ARCH=arm distclean
+git clean -dfX
+git clean -df
+find ../modules -mindepth 1 -maxdepth 1 -type d -exec make -C {} clean \;
 echo "---- LOADING DEFAULT CONFIGURATION ----"
-make ARCH=arm defconfig ev3dev_defconfig
+make ARCH=arm ev3dev_defconfig
 # make sure kernel version (uname -v) matches debian revision
 echo $(expr match ${REVISION} '^[0-9]*') > .version
 echo "---- BUILDING PACKAGES ----"

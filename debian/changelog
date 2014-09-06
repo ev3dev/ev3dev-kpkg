@@ -1,3 +1,16 @@
+linux-source-3.16.1-1-ev3dev (1) testing; urgency=medium
+
+  * Merge upstream kernel 3.16.1
+  * Add modules: stv06xx USB webcam, Bluetooth HCI USB, RFKILL
+  * Fix HiTechnic I2C sensors not autodetected
+  * Fix scaling of non-uart sensors
+  * Improve uart sensor line discipline (fixes endless reconnecting)
+  * Make EV3 LEDs dimmable by setting brightness
+  * Restrict write permissions on msensor and tacho_motor device classes
+  * Fix disable_out_port module parameter not working
+
+ -- David Lechner <david@lechnology.com>  Sat, 06 Sep 2014 14:34:52 -0500
+
 linux-source-3.14.17-1-ev3dev (3) testing; urgency=medium
 
   * Fix issue with rtl8188eu package.
@@ -16,7 +29,7 @@ linux-source-3.14.17-1-ev3dev (1) testing; urgency=medium
   * merge upstream stable kernel 3.14.17
   * include rtl8188eu module (separate package)
   * enable network bridge kernel module (CONFIG_BRIDGE)
-  * enable Apple USB Etherne kernel module
+  * enable Apple USB Ethernet kernel module
 
  -- David Lechner <david@lechnology.com>  Wed, 20 Aug 2014 12:50:11 -0500
 
