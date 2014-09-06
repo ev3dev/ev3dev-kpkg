@@ -1,6 +1,12 @@
+linux-source-3.14.17-1-ev3dev (3) testing; urgency=medium
+
+  * Fix issue with rtl8188eu package.
+
+ -- David Lechner <david@lechnology.com>  Sat, 23 Aug 2014 17:04:24 -0500
+
 linux-source-3.14.17-1-ev3dev (2) testing; urgency=medium
 
-  * Fix depedency issue with rtl1811eu module package
+  * Fix depedency issue with rtl8188eu module package
   * Enable Blutooth HCI USB kernel module
 
  -- David Lechner <david@lechnology.com>  Sat, 23 Aug 2014 12:41:59 -0500
