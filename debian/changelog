@@ -1,3 +1,11 @@
+linux-source-3.16.1-2-ev3dev (1) testing; urgency=medium
+
+  * [tacho_motor] Add polarity_mode and encoder_mode. (@rhempel)
+  * [tacho_motor] Fix inverted duty cycle
+  * [msensor] Fix lockup with bad mode on LEGO EV3 IR Seeker
+
+ -- David Lechner <david@lechnology.com>  Wed, 10 Sep 2014 20:09:12 -0500
+
 linux-source-3.16.1-1-ev3dev (1) testing; urgency=medium
 
   * Merge upstream kernel 3.16.1
