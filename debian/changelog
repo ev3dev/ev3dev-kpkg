@@ -1,3 +1,32 @@
+linux-source-3.16.1-3-ev3dev (1) testing; urgency=medium
+
+  * [msensor]: rename `i2c_addr` attribute to `address`. Remove `type_id`
+    attribute. New `name` attribute that returns the name of the device/
+    driver of the sensor.
+  * [nxt-analog-sensor]: Added support for the following sensors
+    - LEGO NXT Touch sensor (merged from touch-sensor)
+    - LEGO NXT Light sensor (merged from nxt-light-sensor)
+    - LEGO NXT Sound sensor (new)
+    - HiTechnic NXT EOPD sensor (new)
+    - HiTechnic NXT Force sesnor (new)
+    - HiTechnic NXT Gyro sensor (new)
+    - HiTechnic NXT Magnetic sensor (new)
+    - Mindsensors NXT Touch Sensor Multiplexer (new) (ev3dev/ev3dev#145)
+  * [nxt-analog-host]: New. Used to set the sensor device/driver for
+    Analog/NXT sensors.
+  * [ev3-analog-sensor]: Merged EV3 Touch sensor from touch-sensor.
+  * [ev3-input-port]: Added attributes for setting the mode and checking the
+    state of the automatic mode.
+  * [nxt-i2c-sensor]:
+    - Renamed all drivers to more descriptive name.
+    - Added support for HiTechnic NXT Sensor Multiplexer. (ev3dev/ev3dev#80)
+  * [lm75]: Enabled lm75 kernel modules for LEGO NXT Temperature sensor
+    support.
+  * [legoev3-uart]: Fix bugs with setting the mode frequently.
+    (ev3dev/ev3dev#154)
+
+ -- David Lechner <david@lechnology.com>  Fri, 26 Sep 2014 09:41:00 -0500
+
 linux-source-3.16.1-2-ev3dev (1) testing; urgency=medium
 
   * [tacho_motor] Add polarity_mode and encoder_mode. (@rhempel)
