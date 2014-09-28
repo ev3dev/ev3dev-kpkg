@@ -1,3 +1,10 @@
+linux-source-3.16.1-3-ev3dev (4) testing; urgency=medium
+
+  * WiFi module packages did not get uploaded for some reason. No changes,
+    just a rebuild.
+
+ -- David Lechner <david@lechnology.com>  Sat, 27 Sep 2014 22:11:49 -0500
+
 linux-source-3.16.1-3-ev3dev (1) testing; urgency=medium
 
   * [msensor]: rename `i2c_addr` attribute to `address`. Remove `type_id`
