@@ -1,7 +1,9 @@
 #!/bin/bash
 
-KERNEL=kernel
-WEBSITE=ev3dev.github.io
+set -e
+
+: ${KERNEL:=kernel}
+: ${WEBSITE:=ev3dev.github.io}
 
 sensor_docs_source="
 	drivers/legoev3/ev3_analog_host.c
@@ -18,6 +20,7 @@ sensor_docs_source="
 	drivers/legoev3/msensor_class.c
 	drivers/legoev3/nxt_i2c_host.c
 	drivers/legoev3/nxt_i2c_sensor_core.c
+	drivers/legoev3/servo_motor_class.c
 "
 
 sensor_docs_dest=${WEBSITE}/docs/sensors/

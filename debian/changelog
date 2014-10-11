@@ -1,3 +1,12 @@
+linux-source-3.16.1-5-ev3dev (1) testing; urgency=medium
+
+  * Fix incorrect msensor name attribute for ev3-analog and nxt-analog
+  * [rhempel] Fixed a number of tacho motor bugs
+  * Add servo_motor device class and add support for mindsensors.com
+    8 channel servo controller.
+
+ -- David Lechner <david@lechnology.com>  Fri, 10 Oct 2014 22:56:50 -0500
+
 linux-source-3.16.1-4-ev3dev (1) testing; urgency=medium
 
   * Fix tacho motor driver not automatically loading. (ev3dev/ev3dev#160)
