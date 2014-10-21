@@ -5,10 +5,13 @@ set -e
 : ${KERNEL:=kernel}
 : ${WEBSITE:=ev3dev.github.io}
 
-sensor_docs_source="
+drivers_docs_source="
+	drivers/legoev3/dc_motor_class.c
 	drivers/legoev3/ev3_analog_host.c
 	drivers/legoev3/ev3_analog_sensor_core.c
 	drivers/legoev3/ev3_input_port.c
+	drivers/legoev3/ev3_output_port.c
+	drivers/legoev3/ev3_tacho_motor.c
 	drivers/legoev3/ev3_uart_host.c
 	drivers/legoev3/ht_smux_i2c_host.c
 	drivers/legoev3/ht_smux_i2c_sensor.c
@@ -20,21 +23,24 @@ sensor_docs_source="
 	drivers/legoev3/msensor_class.c
 	drivers/legoev3/nxt_i2c_host.c
 	drivers/legoev3/nxt_i2c_sensor_core.c
+	drivers/legoev3/rcx_led.c
+	drivers/legoev3/rcx_motor.c
 	drivers/legoev3/servo_motor_class.c
+	drivers/legoev3/tacho_motor_class.c
 "
+drivers_docs_dest=${WEBSITE}/docs/drivers
 
-sensor_docs_dest=${WEBSITE}/docs/sensors/
+rm -f ${drivers_docs_dest}/*.markdown
 
-rm ${sensor_docs_dest}/*.markdown
-
-for in_file in ${sensor_docs_source}; do
+for in_file in ${drivers_docs_source}; do
 	in_file=${KERNEL}/${in_file}
 	out_file=${in_file##*/}
 	out_file=${out_file//_core/}
 	out_file=${out_file//_/-}
-	out_file=${sensor_docs_dest}/${out_file/.*/.markdown}
+	out_file=${drivers_docs_dest}/${out_file/.*/.markdown}
 	${KERNEL}/scripts/kernel-doc -text -function website ${in_file} | \
 		./kernel-doc-text-to-markdown.py > ${out_file}
 done
 
+rm -f ${WEBSITE}/docs/sensors/*.markdown
 ./sensor-defs-to-markdown.py ${KERNEL}/drivers/legoev3/*_defs.c ${WEBSITE}

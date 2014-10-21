@@ -1,3 +1,20 @@
+linux-source-3.16.1-6-ev3dev (1) testing; urgency=medium
+
+  * Fix 0846:9030 NetGear, Inc. WNA1100 Wireless-N 150 flooding logs.
+    (ev3dev/ev3dev#152) Note: this does not completely resolve the issue.
+    This dongle still does not work.
+  * Major changes to servo-motor class.
+  * Add dc-motor class for RCX/Power Functions motors.
+  * Add mode attribute to ev3-output-port for forcing the loading of the type
+    of device that is attached (ev3dev/ev3dev#123).
+  * tacho-motor class device are now named `motor<N>` instead of
+   `tacho-motor<N>`.
+  * Add rcx-motor and rcx-led drivers for use with 9V motors and LEDs connected
+    to the EV3 output ports.
+  * Fix motor removal not detected (ev3dev/ev3dev#72)
+
+ -- David Lechner <david@lechnology.com>  Mon, 20 Oct 2014 17:05:11 -0500
+
 linux-source-3.16.1-5-ev3dev (1) testing; urgency=medium
 
   * Fix incorrect msensor name attribute for ev3-analog and nxt-analog
