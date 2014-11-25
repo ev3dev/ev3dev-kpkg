@@ -1,3 +1,9 @@
+linux-source-3.16.1-7-ev3dev (2) testing; urgency=medium
+
+  * Fix divide by zero error in WeDo sensors. (Issue ev3dev/ev3dev#212)
+
+ -- David Lechner <david@lechnology.com>  Tue, 25 Nov 2014 11:21:15 -0600
+
 linux-source-3.16.1-7-ev3dev (1) testing; urgency=medium
 
   * Enable namespaces in kernel (Issue ev3dev/ev3dev#189)
