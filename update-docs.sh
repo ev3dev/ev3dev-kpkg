@@ -27,6 +27,7 @@ drivers_docs_source="
 	drivers/legoev3/rcx_motor.c
 	drivers/legoev3/servo_motor_class.c
 	drivers/legoev3/tacho_motor_class.c
+	drivers/usb/misc/wedo/wedo_hub.c
 "
 drivers_docs_dest=${WEBSITE}/docs/drivers
 
@@ -43,4 +44,5 @@ for in_file in ${drivers_docs_source}; do
 done
 
 rm -f ${WEBSITE}/docs/sensors/*.markdown
-./sensor-defs-to-markdown.py ${KERNEL}/drivers/legoev3/*_defs.c ${WEBSITE}
+./sensor-defs-to-markdown.py ${KERNEL}/drivers/legoev3/*_defs.c \
+	${KERNEL}/drivers/usb/misc/wedo/wedo_sensor.c ${WEBSITE}

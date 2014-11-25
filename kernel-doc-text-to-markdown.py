@@ -14,9 +14,12 @@ def main():
             print('---')
             print()
         elif line.startswith('.'):
-            print(line[1:-1])
+            # kerneldoc parsing script joins any line ending with '\' to
+            # the next line. So, if we need a line that ends in '\', we
+            # "reverse-escape" it with '$', then remove the escape here.
+            print(line[1:-1].replace('\\$', '\\'))
         else:
-            print(line[:-1])
+            print(line[:-1].replace('\\$', '\\'))
         i += 1
 
 if __name__ == "__main__":

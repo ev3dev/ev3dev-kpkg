@@ -70,7 +70,8 @@ def get_url_name(sensor):
     url_name = sensor['vendor_part_name']
     if 'vendor_name' in sensor:
         url_name = '{0} {1}'.format(sensor['vendor_name'], url_name)
-    return re.sub('([^\w+]-)', '', url_name.replace(' ', '-').lower())
+    return re.sub('([^\w+]-)', '-', url_name.replace(' ', '-').lower()) \
+        .replace('--', '-')
 
 def parse_file(file_name):
     with open(file_name) as file:

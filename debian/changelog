@@ -1,3 +1,22 @@
+linux-source-3.16.1-7-ev3dev (1) testing; urgency=medium
+
+  * Enable namespaces in kernel (Issue ev3dev/ev3dev#189)
+  * Fix dc-motor polarity attribute.
+  * mindsensors.com GlideWheel-AS Angle Sensor support.
+  * mindsensors.com Absolute-IMU Tilt/Accel/Compass/Gyro sensor support.
+  * Enable kernel modules needed for tethering in ConnMan.
+  * Add new command and commands attributes to msensor class. This replaces
+    modes in some cases.
+  * Shorten and unify most msensor mode names. (Issue ev3dev/ev3dev#111)
+  * [bemgli]: Microfinity CruizCore XG1300L Digital Gyroscope and Accelerometer
+    sensor support. (Issue ev3dev/ev3dev#210)
+  * [rhempel]: WeDo hub support, including motors and motion and tilt sensors.
+    (Issue ev3dev/ev3dev#199)
+  * [rhemel]: Rename dc-motor duty_cycle attribute to duty_cycle_sp and add new
+    duty_cycle attribute that returns current duty cycle.
+
+ -- David Lechner <david@lechnology.com>  Mon, 24 Nov 2014 20:32:30 -0600
+
 linux-source-3.16.1-6-ev3dev (1) testing; urgency=medium
 
   * Fix 0846:9030 NetGear, Inc. WNA1100 Wireless-N 150 flooding logs.
