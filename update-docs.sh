@@ -6,28 +6,25 @@ set -e
 : ${WEBSITE:=ev3dev.github.io}
 
 drivers_docs_source="
-	drivers/legoev3/dc_motor_class.c
-	drivers/legoev3/ev3_analog_host.c
-	drivers/legoev3/ev3_analog_sensor_core.c
-	drivers/legoev3/ev3_input_port.c
-	drivers/legoev3/ev3_output_port.c
-	drivers/legoev3/ev3_tacho_motor.c
-	drivers/legoev3/ev3_uart_host.c
-	drivers/legoev3/ht_smux_i2c_host.c
-	drivers/legoev3/ht_smux_i2c_sensor.c
-	drivers/legoev3/ht_smux_input_port.c
-	drivers/legoev3/legoev3_ports.c
-	drivers/legoev3/legoev3_uart.c
-	drivers/legoev3/nxt_analog_host.c
-	drivers/legoev3/nxt_analog_sensor_core.c
-	drivers/legoev3/msensor_class.c
-	drivers/legoev3/nxt_i2c_host.c
-	drivers/legoev3/nxt_i2c_sensor_core.c
-	drivers/legoev3/rcx_led.c
-	drivers/legoev3/rcx_motor.c
-	drivers/legoev3/servo_motor_class.c
-	drivers/legoev3/tacho_motor_class.c
-	drivers/usb/misc/wedo/wedo_hub.c
+	drivers/lego/core/lego_port_class.c
+	drivers/lego/ev3/legoev3_ports_core.c
+	drivers/lego/ev3/legoev3_ports_in.c
+	drivers/lego/ev3/legoev3_ports_out.c
+	drivers/lego/motors/dc_motor_class.c
+	drivers/lego/motors/ev3_tacho_motor.c
+	drivers/lego/motors/rcx_led.c
+	drivers/lego/motors/rcx_motor.c
+	drivers/lego/motors/servo_motor_class.c
+	drivers/lego/motors/tacho_motor_class.c
+	drivers/lego/sensors/ev3_analog_sensor_core.c
+	drivers/lego/sensors/ev3_uart_sensor_ld.c
+	drivers/lego/sensors/ht_nxt_smux.c
+	drivers/lego/sensors/ht_nxt_smux_i2c_sensor.c
+	drivers/lego/sensors/lego_sensor_class.c
+	drivers/lego/sensors/ms_ev3_smux.c
+	drivers/lego/sensors/nxt_analog_sensor_core.c
+	drivers/lego/sensors/nxt_i2c_sensor_core.c
+	drivers/lego/wedo/wedo_hub.c
 "
 drivers_docs_dest=${WEBSITE}/docs/drivers
 
@@ -44,5 +41,10 @@ for in_file in ${drivers_docs_source}; do
 done
 
 rm -f ${WEBSITE}/docs/sensors/*.markdown
-./sensor-defs-to-markdown.py ${KERNEL}/drivers/legoev3/*_defs.c \
-	${KERNEL}/drivers/usb/misc/wedo/wedo_sensor.c ${WEBSITE}
+./sensor-defs-to-markdown.py ${KERNEL}/drivers/lego/sensors/*_defs.c \
+	${KERNEL}/drivers/lego/wedo/wedo_{hub,sensor}.c ${WEBSITE}
+
+rm -f ${WEBSITE}/docs/ports/*.markdown
+./port-defs-to-markdown.py ${KERNEL}/drivers/lego/ev3/legoev3_ports_{in,out}.c \
+	${KERNEL}/drivers/lego/sensors/{ht_nxt_smux,ms_ev3_smux}.c \
+	${KERNEL}/drivers/lego/wedo/wedo_port.c ${WEBSITE}

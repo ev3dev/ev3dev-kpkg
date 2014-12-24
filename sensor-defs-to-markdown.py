@@ -81,7 +81,7 @@ def parse_file(file_name):
     # search for the sensor definitions. Looks like:
     #    const struct <some_type> <some_name>_defs[] = {
     while i < len(lines):
-        match = re.match('const struct\s\w+\s(\w+)_defs\[\]\s=\s\{', lines[i])
+        match = re.match('(?:\w+\s)+(\w+)_defs\[\]\s=\s\{', lines[i])
         i += 1
         if match:
             sensor_type = match.group(1).replace('_', '-')
