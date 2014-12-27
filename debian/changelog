@@ -1,3 +1,23 @@
+linux-source-3.16.1-8-ev3dev (1) testing; urgency=medium
+
+  * "legoev3" bus is renamed to "lego" bus.
+  * Removed "wedo" bus.
+  * "msensor" class is renamed to "lego-sensor" class.
+  * lego-sensor class "dp" attribute is renamed to "decimals".
+  * lego-sensor, dc-motor and servo-motor classes "name" attribute is renamed
+    to "device_name".
+  * Add new "lego-port" class modify port drivers to use this.
+  * Removed "*host" drivers for input ports and merged functionality into the
+    "lego-port" class.
+  * uevent properties are renamed to "LEGO_DEVICE_NAME" and "LEGO_PORT_NAME".
+    This applies to lego-sensor, lego-port, dc-motor, tacho-motor and
+    servo-motor classes and associated parent devices.
+  * Rename "legoev3_uart" module to "ev3_uart_sensor_ld"
+  * Add support for mindsensors.com EV3 Sensor Multiplexer.
+  * Requires ev3dev-base package version >= 8.
+
+ -- David Lechner <david@lechnology.com>  Sat, 27 Dec 2014 14:05:57 -0600
+
 linux-source-3.16.1-7-ev3dev (2) testing; urgency=medium
 
   * Fix divide by zero error in WeDo sensors. (Issue ev3dev/ev3dev#212)

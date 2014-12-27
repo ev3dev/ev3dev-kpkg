@@ -34,7 +34,8 @@ def main():
             all_file_names.append(file_name)
     kernel_doc_script = os.path.join(args.kdir, 'scripts/kernel-doc')
     for file_name in all_file_names:
-        out_file_name = file_name.split('/')[-1].replace('.c', '.markdown').replace('_core', '')
+        out_file_name = file_name.split('/')[-1].replace('.c', '.markdown')
+        out_file_name = out_file_name.replace('_core', '').replace('_', '-')
         out_file_name = os.path.join(args.destination, 'docs/drivers', out_file_name)
         proc = subprocess.Popen([kernel_doc_script, '-text', '-function', 'website', file_name],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
