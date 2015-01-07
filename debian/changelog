@@ -1,3 +1,34 @@
+linux-source-3.16.7-ckt3-ev3dev1 (1) testing; urgency=medium
+
+  * Merge upstream kerenl 3.16.7-ckt3. (ckt = Canonical Kernel Team - Ubuntu
+    is now maintaining the 3.16 kernel series since it is not a longterm support
+    version kernel.org). Among other things, this fixes WNA1100 WiFi dongle not
+    working (ev3dev/ev3dev#152)
+  * Reading/writing kerenel attributes that are not supported now return
+    -EOPNOTSUPP instead of -ENOSYS. (various lego drivers).
+  * Add "change" kerenel uevent when mode changes in lego-port or lego-sensor
+    classes, status changes in lego-port or poll_ms changes in lego-sensor.
+  * UART/EV3 sensors now restore the previous selected mode if they reset due
+    to a timeout or other error.
+  * Fix legoev3-intput-port auto mode not working after changing to another mode
+    and then changing back.
+  * Writing to set_device attribute on legoev3-input-port now works if status is
+    nxt-analog.
+  * Wedo port auto mode is now lower case.
+  * In lego-sensor class, fw_version and poll_ms attributes are always present.
+  * In lego-port, lego-sensor, dc-motor and servo-motor classes, `device_name`
+    attribute is renamed to `driver_name`.
+  * Fix errors in documentation. Thanks @BertLindeman, @WasabiFan and
+    @szabolcszijarto.
+  * Fix kernel oops in rcx-motor driver. (ev3dev/ev3dev#242)
+  * Fix chaning modes of legoev3-output-port not working on first attempt.
+    (ev3dev/ev3dev#242)
+  * Rename `sensor_names` attribute to `driver_names` on nxt-analog-sensor
+    driver.
+  * [rhempel] Add support for LEGO Power Functions Servo Motor on WeDo hub.
+
+ -- David Lechner <david@lechnology.com>  Tue, 06 Jan 2015 19:34:09 -0600
+
 linux-source-3.16.1-8-ev3dev (1) testing; urgency=medium
 
   * "legoev3" bus is renamed to "lego" bus.
