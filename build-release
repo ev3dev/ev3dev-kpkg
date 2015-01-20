@@ -38,7 +38,10 @@ if [ "${PACKAGE_VERSION}" != "${KERNEL_VERSION}" ]; then
 fi
 
 if [ "${REPO}" != "test" ]; then
-    git tag "v${KERNEL_VERSION}_${REVISION//\~/pre}"
+    git tag "v${KERNEL_VERSION}_${REVISION//\~/rc}"
+    pushd drivers/lego
+    git tag "v${KERNEL_VERSION}_${REVISION//\~/rc}"
+    popd
 fi
 
 echo "---- CLEANING UP ----"
