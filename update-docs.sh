@@ -19,9 +19,17 @@ rm -f ${WEBSITE}/docs/drivers/*.markdown
 	drivers/lego/sensors/nxt_i2c_sensor_core.c
 
 rm -f ${WEBSITE}/docs/sensors/*.markdown
-./sensor-defs-to-markdown.py ${KERNEL} ${WEBSITE} \
-	drivers/lego/sensors/*_defs.c \
-	drivers/lego/wedo/wedo_{hub,sensor}.c
+./sensor-defs-to-markdown.py \
+	--kernel ${KERNEL} \
+	--website ${WEBSITE} \
+	--header-files \
+		drivers/lego/sensors/ev3_analog_sensor.h \
+		drivers/lego/sensors/ev3_uart_sensor.h \
+		drivers/lego/sensors/nxt_analog_sensor.h \
+		drivers/lego/sensors/nxt_i2c_sensor.h \
+	--source-files \
+		drivers/lego/sensors/*_defs.c \
+		drivers/lego/wedo/wedo_{hub,sensor}.c
 
 rm -f ${WEBSITE}/docs/ports/*.markdown
 ./port-defs-to-markdown.py ${KERNEL} ${WEBSITE} \

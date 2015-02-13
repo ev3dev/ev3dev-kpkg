@@ -15,7 +15,7 @@ def error(message):
     print("Error: {0}".format(message), file=sys.stderr)
     exit(1)
 
-def parse_sensor(lines, i):
+def parse_sensor(lines, i, name_constants):
     result = {}
     # first line of a sensor def should look like "[<index>] = {"
     match = re.match('\s*\[(\w+)\]\s*=\s*\{', lines[i])
@@ -31,7 +31,7 @@ def parse_sensor(lines, i):
             while not re.match('\s*\*/', lines[i]):
                 match = re.match('\s*\*\s*@(\w+):\s*(.*)', lines[i])
                 if match:
-                    result[sensor_name][match.group(1)] = match.group(2)
+                    result[sensor_name][match.group(1)] = name_constants.get(match.group(2)) or match.group(2)
                 else:
                     match = re.match('\s*\*\s?(.*)', lines[i])
                     if match:
@@ -49,18 +49,18 @@ def parse_sensor(lines, i):
                 i += 1
             i += 1
             continue
-        match = re.match('\s*\.([\w\.]+)\s*=\s*(".*?"|\'.*?\'|-?\d+|\w+|\{),?', lines[i])
+        match = re.match('\s*\.([\w\.]+)\s*=\s*(".*?"|\'.*?\'|-?\d+|[\w\(\)"]+|\{),?', lines[i])
         if not match:
             raise Exception('missing closing "}}" at line {0}'.format(i))
         i += 1
-        result[sensor_name][match.group(1)] = match.group(2).strip('"')
+        result[sensor_name][match.group(1)] = (name_constants.get(match.group(2)) or match.group(2)).strip('"')
         # opening bracket means we have a array definition. Arrays defs are
         # structured the same as sensor defs, so we just call this function
         # recursively
         if match.group(2) == '{':
             result[sensor_name][match.group(1)] = []
             while not re.match('\s*\},?', lines[i]):
-                sensor, i = parse_sensor(lines, i)
+                sensor, i = parse_sensor(lines, i, name_constants)
                 for key in sensor:
                     sensor[key]['id'] = key
                     result[sensor_name][match.group(1)].append(sensor[key])
@@ -75,7 +75,19 @@ def get_url_name(sensor):
     return re.sub('([^\w+]-)', '-', url_name.replace(' ', '-').lower()) \
         .replace('--', '-')
 
-def parse_file(kdir, file_name):
+def parse_header(file_name, dict):
+    """Parse the header file for #defines that have a string value and save the
+    result in dict."""
+    with open(file_name) as file:
+        lines = file.read().split('\n')
+    i = 0
+    while i < len(lines):
+        match = re.match('#define\s+(\w+)\s+"([\w-]+)"', lines[i])
+        i += 1
+        if match:
+            dict[match.group(1)] = match.group(2)
+
+def parse_file(kdir, file_name, name_constants):
     with open(file_name) as file:
         lines = file.read().split('\n')
     sensor_list = []
@@ -90,7 +102,7 @@ def parse_file(kdir, file_name):
             sensor_type = match.group(1).replace('_', '-')
             while not re.match('\s*\};', lines[i]):
                 try:
-                    sensor, i = parse_sensor(lines, i)
+                    sensor, i = parse_sensor(lines, i, name_constants)
                     for key in sensor:
                         sensor[key]['id'] = key
                         sensor[key]['sensor_type'] = sensor_type
@@ -114,37 +126,74 @@ def get_sensor_sort_key(sensor):
     return key
 
 def get_sensor_page_title(sensor):
+    """Generates a page title out of the vendor information of a sensor"""
     return ('vendor_name' in sensor and '{0} '.format(sensor['vendor_name']) \
             or "") + sensor['vendor_part_name'] + ('vendor_part_number' in \
             sensor and ' ({0})'.format(sensor['vendor_part_number']) or "")
 
 def main():
+    # setup command line parameters
     parser = argparse.ArgumentParser(description=DESCRIPTION)
-    parser.add_argument('kdir', type=str, help='kernel source directory')
-    parser.add_argument('destination', type=str, help='destination folder')
-    parser.add_argument('file_names', metavar='file', type=str, nargs='+',
+    parser.add_argument('--kernel', type=str, help='kernel source directory')
+    parser.add_argument('--website', type=str, help='destination folder')
+    parser.add_argument('--header-files', metavar='header', type=str, nargs='+',
+            help='header file names')
+    parser.add_argument('--source-files', metavar='file', type=str, nargs='+',
             help='sensor definition file names')
     args = parser.parse_args()
-    proc = subprocess.Popen(['make', '-s', '-C', args.kdir, 'kernelversion'],
+
+    # get the kernel version
+    proc = subprocess.Popen(['make', '-s', '-C', args.kernel, 'kernelversion'],
         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     kernel_version, err = proc.communicate()
     kernel_version = kernel_version.decode('ascii').strip()
-    all_file_names = []
-    for arg_file_name in args.file_names:
-        arg_file_names = glob.glob(os.path.join(args.kdir, arg_file_name))
+
+    # expand list of files in --header-files arg using glob
+    all_header_file_names = []
+    for arg_file_name in args.header_files:
+        arg_file_names = glob.glob(os.path.join(args.kernel, arg_file_name))
         for file_name in arg_file_names:
             if not os.path.isfile(file_name):
                 error('File {0} does not exist.'.format(file_name))
-            all_file_names.append(file_name)
+            all_header_file_names.append(file_name)
+
+    # expand list of files in --source-files arg using glob
+    source_file_names = []
+    for arg_file_name in args.source_files:
+        arg_file_names = glob.glob(os.path.join(args.kernel, arg_file_name))
+        for file_name in arg_file_names:
+            if not os.path.isfile(file_name):
+                error('File {0} does not exist.'.format(file_name))
+            source_file_names.append(file_name)
+
+    # name constants will be used to substitute constant names for real string values
+    name_constants = {}
+
+    # special case for EV3 UART sensors
+    for type_id in range(0, 128):
+        key = 'EV3_UART_SENSOR_NAME("{0}")'.format(type_id)
+        value = 'ev3-uart-sensor-{0}'.format(type_id)
+        name_constants[key] = value
+
+    # parse header files to get all other name constants
+    for file_name in all_header_file_names:
+        parse_header(file_name, name_constants)
+
+    # parse source file to get sensor definitions
     sensor_list = []
-    for file_name in all_file_names:
-        sensor_list += parse_file(args.kdir, file_name)
+    for file_name in source_file_names:
+        sensor_list += parse_file(args.kernel, file_name, name_constants)
+
     # sort by vendor_name, then by vendor_part_number
     sensor_list.sort(key=lambda sensor: get_sensor_sort_key(sensor))
-    with open(args.destination + '/_data/sensors.json', 'w') as out_file:
+
+    # generate json data file
+    with open(args.website + '/_data/sensors.json', 'w') as out_file:
         print(json.dumps(sensor_list, sort_keys=True, indent=4), file=out_file)
+
+    # generate markdown files, one for each sensor type
     for idx, item in enumerate(sensor_list):
-        dest_file = '{0}/docs/sensors/{1}.markdown'.format(args.destination, item['url_name'])
+        dest_file = '{0}/docs/sensors/{1}.markdown'.format(args.website, item['url_name'])
         with open(dest_file, 'w') as out_file:
             print('---', file=out_file)
             print('autogen:', 'This file was automatically generated by ' +
