@@ -1,3 +1,25 @@
+linux-source-3.16.7-ckt6-ev3dev1 (1) testing; urgency=medium
+
+  * Merge upstream kernel v3.16.7-ckt6.
+  * Implement timeout for input port I2C. Fixes kernel memory corruption.
+    (Issue ev3dev/ev3dev#243)
+  * "EV3 buttons" input device now has unique name (was "gpio-keys").
+  * Fix USB overcurrent pin mux not set.
+  * Fix inconsistencies in I2C driver names. "ht-nxt-ir-seeker-v2" is renamed
+    to "ht-nxt-ir-seek-v2", (Issue ev3dev/ev3dev#268)
+  * Fix incorrect vendor string on HiTechnic NXT Compass sensor. (Issue
+    ev3dev/ev3dev#268)
+  * Enable "9V" battery voltage on pin 1 for HT SuperPro and mindsensors.com
+    LineLeader.
+
+  [Vitaly Kravtsov]
+  * Auto-generated documentation fixes.
+  * Fix uart sensor driver name when using mindsensors.com EV3 Sensor MUX.
+    "lego-ev3-uart-*" is renamed to "ev3-uart-sensor-*"
+  * Remove leading space in LEGO EV3 Gyro UART sensor GYRO-FAS mode.
+
+ -- David Lechner <david@lechnology.com>  Sun, 22 Feb 2015 16:05:03 -0600
+
 linux-source-3.16.7-ckt4-ev3dev1 (1) testing; urgency=medium
 
   * Merge upstream kernel v3.16.7-ckt4.
