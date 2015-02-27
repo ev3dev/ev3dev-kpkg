@@ -172,7 +172,7 @@ def main():
     # special case for EV3 UART sensors
     for type_id in range(0, 128):
         key = 'EV3_UART_SENSOR_NAME("{0}")'.format(type_id)
-        value = 'ev3-uart-sensor-{0}'.format(type_id)
+        value = 'lego-ev3-uart-{0}'.format(type_id)
         name_constants[key] = value
 
     # parse header files to get all other name constants
