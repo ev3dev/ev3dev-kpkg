@@ -1,3 +1,13 @@
+linux-source-3.16.7-ckt9-ev3dev1 (1) testing; urgency=medium
+
+  * Merge upstream kernel v3.16.7-ckt9.
+  * Major overhaul of tacho-motor class (Issue ev3dev/ev3dev#282).
+  * Add support for mindsensor.com NxtMMX motor multiplexer.
+  * Implement `set_device` attribute for EV3 output ports.
+  * Remove `address` attribute from lego-sensor class.
+
+ -- David Lechner <david@lechnology.com>  Wed, 15 Apr 2015 13:23:55 -0500
+
 linux-source-3.16.7-ckt6-ev3dev1 (1) testing; urgency=medium
 
   * Merge upstream kernel v3.16.7-ckt6.

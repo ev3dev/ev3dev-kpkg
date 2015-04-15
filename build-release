@@ -52,7 +52,7 @@ find ../modules -mindepth 1 -maxdepth 1 -type d -exec make -C {} clean \;
 echo "---- LOADING DEFAULT CONFIGURATION ----"
 make ARCH=arm ev3dev_defconfig
 # make sure kernel version (uname -v) matches debian revision
-echo $(expr match ${REVISION} '^[0-9]*') > .version
+echo $(( $(expr match ${REVISION} '^[0-9]*') - 1 )) > .version
 echo "---- BUILDING PACKAGES ----"
 LOCALVERSION="" DEB_HOST_ARCH=armel MODULE_LOC=../modules \
     make-kpkg --rootcmd fakeroot --overlay-dir ../debian \
