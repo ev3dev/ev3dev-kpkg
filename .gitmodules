@@ -10,3 +10,6 @@
 [submodule "ev3dev.github.io"]
 	path = ev3dev.github.io
 	url = git@github.com:ev3dev/ev3dev.github.io
+[submodule "rpi-kernel"]
+	path = rpi-kernel
+	url = git://github.com/ev3dev/rpi-kernel

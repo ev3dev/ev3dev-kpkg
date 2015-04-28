@@ -8,4 +8,8 @@ Build depends: `kernel-package devscripts module-assistant code-sourcery-toolcha
 
 `code-sourcery-toolchain-arm-2011.03` package is in the ev3dev.org package repository.
 
-Kernel version 3.15+ requires `kernel-package` version 13+ (availible in offical jessie or utopic repositories)
+For Raspbian (armv6) builds, you will need the `gcc-linaro-arm-linux-gnueabihf-raspbian`
+toolchain package instead (also in ev3dev.org repo).
+
+Kernel version 3.15+ requires `kernel-package` version 13+ (availible in offical
+jessie or utopic repositories)

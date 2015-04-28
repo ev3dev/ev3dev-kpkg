@@ -1,0 +1,5 @@
+linux-source-3.18.11-4-ev3dev-rpi (1~1) stable; urgency=medium
+
+  * Initial release.
+
+ -- David Lechner <david@lechnology.com>  Sun, 26 Apr 2015 16:58:10 -0500

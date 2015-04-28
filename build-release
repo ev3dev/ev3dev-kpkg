@@ -2,7 +2,31 @@
 
 set -e
 
-REVISION=$(dpkg-parsechangelog | sed -n -e 's/^Version: //p')
+if [ "$RPI" = "1" ]; then
+    OVERLAY_DIR="ev3dev-rpi"
+    DEBARCH="armhf"
+    CROSS_COMPILE=/usr/lib/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-
+    DEFCONFIG="ev3devrpi_defconfig"
+    DPUT_HOST="rpi-ev3dev"
+elif [ "$RPI" = "2" ]; then
+    OVERLAY_DIR="ev3dev-rpi2"
+    DEBARCH="armhf"
+    DEFCONFIG="ev3devrpi2_defconfig"
+    DPUT_HOST="ev3dev"
+    echo "RPi2 not supported yet"
+    exit 1
+else
+    OVERLAY_DIR="ev3dev-ev3"
+    DEBARCH="armel"
+    CROSS_COMPILE=/opt/arm-2011.03/bin/arm-none-eabi-
+    MODULES_TARGET="modules"
+    DEFCONFIG="ev3dev_defconfig"
+    DPUT_HOST="ev3dev"
+fi
+
+CHANGELOG="${OVERLAY_DIR}/changelog"
+
+REVISION=$(dpkg-parsechangelog -l${CHANGELOG}| sed -n -e 's/^Version: //p')
 
 if [ ! -z "$1" ]; then
     REPO=$1
@@ -10,12 +34,14 @@ else
     REPO="test"
 fi
 
-PACKAGE_VERSION=$(dpkg-parsechangelog | sed -n -e 's/Source: linux-source-//p')
+# rpi1 has to go in special raspbian repo
 
-# make sure we are ignoring debian/control in all of the modules because
-# it is automatically updateed
+PACKAGE_VERSION=$(dpkg-parsechangelog -l${CHANGELOG}| sed -n -e 's/Source: linux-source-//p')
 
-if [ -d modules ]; then
+# make sure git is ignoring debian/control in all of the modules because
+# it is automatically updated
+
+if [ ! -z $MODULES_TARGET ]; then
     pushd modules
 
     for d in $(ls)
@@ -28,12 +54,18 @@ if [ -d modules ]; then
     popd
 fi
 
-pushd kernel
+# change to the kernel directory to do the actual building
+
+if [ -z "$RPI" ]; then
+    pushd kernel
+else
+    pushd rpi-kernel
+fi
 
 KERNEL_VERSION=$(make ARCH=arm kernelversion)
 
 if [ "${PACKAGE_VERSION}" != "${KERNEL_VERSION}" ]; then
-    echo "Kernel version does not match debian/changelog"
+    echo "Kernel version (${KERNEL_VERSION}) does not match ${CHANGELOG} version (${PACKAGE_VERSION})."
     exit 1
 fi
 
@@ -50,19 +82,22 @@ git clean -dfX
 git clean -df
 find ../modules -mindepth 1 -maxdepth 1 -type d -exec make -C {} clean \;
 echo "---- LOADING DEFAULT CONFIGURATION ----"
-make ARCH=arm ev3dev_defconfig
+make ARCH=arm ${DEFCONFIG}
 # make sure kernel version (uname -v) matches debian revision
 echo $(( $(expr match ${REVISION} '^[0-9]*') - 1 )) > .version
 echo "---- BUILDING PACKAGES ----"
-LOCALVERSION="" DEB_HOST_ARCH=armel MODULE_LOC=../modules \
-    make-kpkg --rootcmd fakeroot --overlay-dir ../debian \
-    --arch arm --cross-compile /opt/arm-2011.03/bin/arm-none-eabi- \
+LOCALVERSION="" DEB_HOST_ARCH=${DEBARCH} MODULE_LOC=../modules \
+    make-kpkg --rootcmd fakeroot --overlay-dir ../${OVERLAY_DIR} \
+    --arch arm --cross-compile ${CROSS_COMPILE} \
     --initrd --revision ${REVISION} --jobs $(nproc) \
-    kernel_image kernel_headers modules
+    kernel_image kernel_headers ${MODULES_TARGET}
 echo "---- GENERATING CHANGES FILE ----"
-dpkg-genchanges -b > ../ev3dev-kernel_${REVISION}.changes
+CHANGES_FILE="../ev3dev-kernel_${KERNEL_VERSION}_${REVISION}_${DEBARCH}.changes"
+dpkg-genchanges -b > ${CHANGES_FILE}
+# dpkg-genchanges includes host arch for some reason, so we have to remove it
+sed -i "s/ amd64//" ${CHANGES_FILE}
 cd ..
 echo "---- SIGNING AND UPLOADING ----"
 debsign *.changes
-dput ev3dev.${REPO} *.changes
+dput ${DPUT_HOST}.${REPO} *.changes
 rm -f *.deb *.changes *.upload
