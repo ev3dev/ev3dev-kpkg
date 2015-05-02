@@ -86,9 +86,10 @@ make ARCH=arm ${DEFCONFIG}
 # make sure kernel version (uname -v) matches debian revision
 echo $(( $(expr match ${REVISION} '^[0-9]*') - 1 )) > .version
 echo "---- BUILDING PACKAGES ----"
-LOCALVERSION="" DEB_HOST_ARCH=${DEBARCH} MODULE_LOC=../modules \
+export $(dpkg-architecture -a${DEBARCH})
+LOCALVERSION="" MODULE_LOC=../modules \
     make-kpkg --rootcmd fakeroot --overlay-dir ../${OVERLAY_DIR} \
-    --arch arm --cross-compile ${CROSS_COMPILE} \
+    --arch arm --subarch=${DEBARCH} --cross-compile ${CROSS_COMPILE} \
     --initrd --revision ${REVISION} --jobs $(nproc) \
     kernel_image kernel_headers ${MODULES_TARGET}
 echo "---- GENERATING CHANGES FILE ----"

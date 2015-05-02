@@ -1,8 +1,17 @@
-linux-source-3.16.7-ckt10-4-ev3dev-ev3 (1~1) stable; urgency=medium
+linux-source-3.16.7-ckt10-4-ev3dev-ev3 (1) stable; urgency=medium
 
-  * 
+  * Merge upstream kernel v3.16.7-ckt10.
+  * Add ABI "-4-" and "-ev3" flavor to version.
+  * Remove LVM support and add ext4 support.
+  * Merge rtl8188cu driver from Raspberry Pi kernel.
+  * Fix HiTechnic angle sensor accumulated angle mode name.
+  * Add calibrate command to HiTechnic angle sensor.
+  * Remove pin1 high from mindsensors i2c sensors.
+  * Changes to dc-motor class to be more like tacho-motor class.
+  * Add `direct` attribute to lego-sensor class.
+  * Update servo-motor class to be more like tacho-motor class.
 
- -- David Lechner <david@lechnology.com>  Mon, 27 Apr 2015 23:38:04 -0500
+ -- David Lechner <david@lechnology.com>  Fri, 01 May 2015 18:50:44 -0500
 
 linux-source-3.16.7-ckt9-ev3dev1 (1) testing; urgency=medium
 
