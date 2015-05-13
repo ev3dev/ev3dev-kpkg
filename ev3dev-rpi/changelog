@@ -1,3 +1,19 @@
+linux-source-3.18.13-5-ev3dev-rpi (1) stable; urgency=medium
+
+  * Add device tree override for Raspberry Pi LED labels.
+  * Add Dexter Industries BrickPi device tree overlay.
+  * Include device tree dtb files in package.
+  * Merge upstream kernel 3.18.13.
+  * Change CONFIG_HZ to 1000.
+
+  [lego-linux-drivers]
+  * Change LED names. Now all ev3dev LEDs always end with ":ev3dev".
+  * I2C drivers now work on any I2C adapter.
+  * Add support for Dexter Industries BrickPi.
+  * Add "ev3:" prefix to EV3 input and output port names.
+
+ -- David Lechner <david@lechnology.com>  Wed, 13 May 2015 12:32:20 -0500
+
 linux-source-3.18.11-4-ev3dev-rpi (1) stable; urgency=medium
 
   * Initial release.
