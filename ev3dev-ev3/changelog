@@ -1,3 +1,18 @@
+linux-source-3.16.7-ckt11-5-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rename LEDs to "ev3-<left|right><0:red|1:green>:ev3dev", e.g.
+    "ev3-left0:red:ev3dev"
+  * Both LEDs now show SD card activity on boot.
+  * Merge upstream kernel 3.16.7-ckt11.
+  * Change CONFIG_HZ to 1000.
+
+  [lego-linux-drivers]
+  * Change LED names. Now all ev3dev LEDs always end with ":ev3dev".
+  * I2C drivers now work with any I2C adapter.
+  * Add support for Dexter Industries BrickPi.
+
+ -- David Lechner <david@lechnology.com>  Thu, 14 May 2015 15:04:02 -0500
+
 linux-source-3.16.7-ckt10-4-ev3dev-ev3 (1) stable; urgency=medium
 
   * Merge upstream kernel v3.16.7-ckt10.

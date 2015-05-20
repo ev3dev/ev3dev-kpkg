@@ -84,7 +84,7 @@ def parse_file(kdir, file_name):
     # search for the port definitions. Looks like:
     #    const struct <some_type> <some_name>_mode_info[] = {
     while i < len(lines):
-        match = re.match('(?:\w+\s)+(\w+)_mode_info\[\]\s=\s\{', lines[i])
+        match = re.match('(?:\w+\s)+(\w+)_mode_info\[\w*\]\s=\s\{', lines[i])
         i += 1
         source_line = i
         if match:
@@ -128,11 +128,10 @@ def main():
         error(err)
     all_file_names = []
     for arg_file_name in args.file_names:
-        arg_file_names = glob.glob(os.path.join(args.kdir, arg_file_name))
-        for file_name in arg_file_names:
-            if not os.path.isfile(file_name):
-                error('File {0} does not exist.'.format(file_name))
-            all_file_names.append(file_name)
+        file_name = os.path.join(args.kdir, arg_file_name)
+        if not os.path.isfile(file_name):
+            error('File {0} does not exist.'.format(file_name))
+        all_file_names.append(file_name)
     port_list = []
     for file_name in all_file_names:
         port_list += parse_file(args.kdir, file_name)

@@ -49,7 +49,7 @@ def parse_sensor(lines, i, name_constants):
                 i += 1
             i += 1
             continue
-        match = re.match('\s*\.([\w\.]+)\s*=\s*(".*?"|\'.*?\'|-?\d+|[\w\(\)"]+|\{),?', lines[i])
+        match = re.match('\s*\.([\w\.]+)\s*=(?:\s*&?\(.*\))?\s*(".*?"|\'.*?\'|-?\d+|[\w\(\)"]+|\{),?', lines[i])
         if not match:
             raise Exception('missing closing "}}" at line {0}'.format(i))
         i += 1
@@ -60,6 +60,10 @@ def parse_sensor(lines, i, name_constants):
         if match.group(2) == '{':
             result[sensor_name][match.group(1)] = []
             while not re.match('\s*\},?', lines[i]):
+                # ignoring ops for now since it is a struct rather than an array
+                if match.group(1) == "ops":
+                    i += 1;
+                    continue
                 sensor, i = parse_sensor(lines, i, name_constants)
                 for key in sensor:
                     sensor[key]['id'] = key

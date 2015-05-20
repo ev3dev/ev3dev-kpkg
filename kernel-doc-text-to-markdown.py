@@ -27,11 +27,10 @@ def main():
     kernel_version = kernel_version.decode('ascii').strip()
     all_file_names = []
     for arg_file_name in args.file_names:
-        arg_file_names = glob.glob(os.path.join(args.kdir, arg_file_name))
-        for file_name in arg_file_names:
-            if not os.path.isfile(file_name):
-                error('File {0} does not exist.'.format(file_name))
-            all_file_names.append(file_name)
+        file_name = os.path.join(args.kdir, arg_file_name)
+        if not os.path.isfile(file_name):
+            error('File {0} does not exist.'.format(file_name))
+        all_file_names.append(file_name)
     kernel_doc_script = os.path.join(args.kdir, 'scripts/kernel-doc')
     for file_name in all_file_names:
         out_file_name = file_name.split('/')[-1].replace('.c', '.markdown')
