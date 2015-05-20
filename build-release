@@ -11,10 +11,10 @@ if [ "$RPI" = "1" ]; then
 elif [ "$RPI" = "2" ]; then
     OVERLAY_DIR="ev3dev-rpi2"
     DEBARCH="armhf"
+    CROSS_COMPILE=/usr/lib/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-
     DEFCONFIG="ev3devrpi2_defconfig"
     DPUT_HOST="ev3dev"
-    echo "RPi2 not supported yet"
-    exit 1
+    APPEND_VERSION="2"
 else
     OVERLAY_DIR="ev3dev-ev3"
     DEBARCH="armel"
@@ -33,8 +33,6 @@ if [ ! -z "$1" ]; then
 else
     REPO="test"
 fi
-
-# rpi1 has to go in special raspbian repo
 
 PACKAGE_VERSION=$(dpkg-parsechangelog -l${CHANGELOG}| sed -n -e 's/Source: linux-source-//p')
 
@@ -62,7 +60,7 @@ else
     pushd rpi-kernel
 fi
 
-KERNEL_VERSION=$(make ARCH=arm kernelversion)
+KERNEL_VERSION=$(make ARCH=arm kernelversion)${APPEND_VERSION}
 
 if [ "${PACKAGE_VERSION}" != "${KERNEL_VERSION}" ]; then
     echo "Kernel version (${KERNEL_VERSION}) does not match ${CHANGELOG} version (${PACKAGE_VERSION})."
@@ -91,6 +89,7 @@ LOCALVERSION="" MODULE_LOC=../modules \
     make-kpkg --rootcmd fakeroot --overlay-dir ../${OVERLAY_DIR} \
     --arch arm --subarch=${DEBARCH} --cross-compile ${CROSS_COMPILE} \
     --initrd --revision ${REVISION} --jobs $(nproc) \
+    $([ ! -z ${APPEND_VERSION} ] echo "--append-to-version=${APPEND_VERSION}") \
     kernel_image kernel_headers ${MODULES_TARGET}
 echo "---- GENERATING CHANGES FILE ----"
 CHANGES_FILE="../ev3dev-kernel_${KERNEL_VERSION}_${REVISION}_${DEBARCH}.changes"
