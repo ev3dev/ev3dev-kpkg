@@ -1,3 +1,17 @@
+linux-source-3.16.7-ckt14-6-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Merge upstream kernel 3.16.7-ckt14.
+  * Enable CONFIG_R8188CU. This replaces out of tree kernel module.
+  * Change CONFIG_HZ back to 100.
+  * Enable ACLs for ext3/4.
+
+  [lego-linux-drivers]
+  * [sensors] ACCEL mode on mindsensors IMU as 3 decimal places.
+  * [sensors] Remove 50 ms hard limit on poll_ms.
+  * Documentation fixes. Thanks Vitaly Kravtsov and Denis Demidov.
+
+ -- David Lechner <david@lechnology.com>  Wed, 08 Jul 2015 13:21:16 -0500
+
 linux-source-3.16.7-ckt11-5-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rename LEDs to "ev3-<left|right><0:red|1:green>:ev3dev", e.g.
