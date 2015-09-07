@@ -1,3 +1,17 @@
+linux-source-3.16.7-ckt16-7-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Revert enable CONFIG_R8188CU. Back to using out of tree kernel module.
+  * Merge upstream kernel 3.16.7-ckt16.
+  * Enable rndis_wlan module.
+  * Enable SCSI CDROM support (needed by some Wi-Fi adapters).
+
+  [lego-linux-drivers]
+  * Fix setting mode of EV3/Analog sensors always returns error.
+  * Add run-direct mode to dc-motor class.
+  * Fix incorrect "running" flag when stopping motors.
+
+ -- David Lechner <david@lechnology.com>  Sun, 06 Sep 2015 21:46:59 -0500
+
 linux-source-3.16.7-ckt14-6-ev3dev-ev3 (1) stable; urgency=medium
 
   * Merge upstream kernel 3.16.7-ckt14.
