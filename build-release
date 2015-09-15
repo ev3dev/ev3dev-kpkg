@@ -6,13 +6,13 @@ if [ "$RPI" = "1" ]; then
     OVERLAY_DIR="ev3dev-rpi"
     DEBARCH="armhf"
     CROSS_COMPILE=/usr/lib/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-
-    DEFCONFIG="ev3devrpi_defconfig"
+    DEFCONFIG="bcmrpi_defconfig"
     DPUT_HOST="rpi-ev3dev"
 elif [ "$RPI" = "2" ]; then
     OVERLAY_DIR="ev3dev-rpi2"
     DEBARCH="armhf"
     CROSS_COMPILE=/usr/lib/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-
-    DEFCONFIG="ev3devrpi2_defconfig"
+    DEFCONFIG="bcm2709_defconfig"
     DPUT_HOST="ev3dev"
     APPEND_VERSION="2"
 else
