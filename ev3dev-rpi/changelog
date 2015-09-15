@@ -1,3 +1,10 @@
+linux-source-4.1.7-7-ev3dev-rpi (1) stable; urgency=medium
+
+  * Update to upstream kernel commit c8baa9702cc99de9614367d0b96de560944e7ccd
+  * Update lego driver to level 7
+
+ -- David Lechner <david@lechnology.com>  Tue, 15 Sep 2015 13:24:25 -0500
+
 linux-source-3.18.13-5-ev3dev-rpi (1) stable; urgency=medium
 
   * Add device tree override for Raspberry Pi LED labels.

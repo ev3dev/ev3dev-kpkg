@@ -3,4 +3,5 @@
 set -e
 
 # install device tree blobs
+make ARCH=arm dtbs
 make INSTALL_DTBS_PATH=${IMAGE_TOP}/usr/lib/linux-image-${version} ARCH=arm dtbs_install
