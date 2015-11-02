@@ -76,8 +76,8 @@ def get_url_name(sensor):
     url_name = sensor['vendor_part_name']
     if 'vendor_name' in sensor:
         url_name = '{0} {1}'.format(sensor['vendor_name'], url_name)
-    return re.sub('([^\w+]-)', '-', url_name.replace(' ', '-').lower()) \
-        .replace('--', '-').replace('/', '-')
+    return re.sub('([^\w+]*-[^\w+]*)', '-', url_name.replace(' ', '-').lower()) \
+        .replace('/', '-').replace('--', '-')
 
 def parse_header(file_name, dict):
     """Parse the header file for #defines that have a string value and save the
