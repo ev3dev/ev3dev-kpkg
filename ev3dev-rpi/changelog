@@ -1,3 +1,26 @@
+linux-source-4.1.12-8-ev3dev-rpi (1) stable; urgency=medium
+
+  * Update to upstream kernel commit 0aa6fa69a7874060590c8cb4fabdb9a222501a08
+  * Add brickpi_battery option to brickpi device-tree overlay for BrickPi+
+  * SPI and TFT drivers are compiled into the kernel for PiStorms.
+  * Add custom property "brickpi,status" to device-tree overlay for BrickPi.
+  * Add PiStorms device-tree overlay
+  * Disable console blanking by default.
+  * Compile i2cdev module into kernel so that it is always loaded.
+  * Use i2c_arm alias in BrickPi device-tree overlay.
+
+  * Update to lego driver level 8:
+    * Add brickpi-battery module for BrickPi+.
+    * Rename brickpi-motor module to ev3-motor and add driver names.
+    * Support for mindsensors.com PiStorms.
+    * Only send change uevent when sensor mode or port mode actually changed.
+    * Add support for PixyCam LEGO edition.
+    * Add support for mindsensors.com NxtCam and PixyAdapt.
+    * Change WeDo port names to use 1 and 2 instead of 0 and 1.
+    * Add support for Dexter Industries dFlex sensor.
+
+ -- David Lechner <david@lechnology.com>  Sun, 08 Nov 2015 22:29:30 -0600
+
 linux-source-4.1.7-7-ev3dev-rpi (1) stable; urgency=medium
 
   * Update to upstream kernel commit c8baa9702cc99de9614367d0b96de560944e7ccd
