@@ -1,3 +1,22 @@
+linux-source-3.16.7-ckt19-8-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Merge upstream kernel 3.16.7-ckt19.
+  * Rename EV3 LEDs from "ev3-{left,right}{0,1}:{red,green}:ev3dev" to
+    "ev3:{left,right}:{red,green}:ev3dev".
+  * Enable Wiimote HID module.
+
+  * Update to lego driver level 8:
+    * Add brickpi-battery module for BrickPi+.
+    * Rename brickpi-motor module to ev3-motor and add driver names.
+    * Support for mindsensors.com PiStorms.
+    * Only send change uevent when sensor mode or port mode actually changed.
+    * Add support for PixyCam LEGO edition.
+    * Add support for mindsensors.com NxtCam and PixyAdapt.
+    * Change WeDo port names to use 1 and 2 instead of 0 and 1.
+    * Add support for Dexter Industries dFlex sensor.
+
+ -- David Lechner <david@lechnology.com>  Mon, 09 Nov 2015 11:00:57 -0600
+
 linux-source-3.16.7-ckt16-7-ev3dev-ev3 (1) stable; urgency=medium
 
   * Revert enable CONFIG_R8188CU. Back to using out of tree kernel module.
