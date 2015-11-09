@@ -7,9 +7,9 @@ set -e
 
 rm -f ${WEBSITE}/docs/drivers/*.markdown
 ./kernel-doc-text-to-markdown.py ${KERNEL} ${WEBSITE} \
-	drivers/lego/brickpi/brickpi_{ld,i2c_sensor}.c \
+	drivers/lego/brickpi/brickpi_{battery,ld,i2c_sensor}.c \
 	drivers/lego/core/lego_port_class.c \
-	drivers/lego/ev3/legoev3_motor_core.c \
+	drivers/lego/ev3/legoev3_motor.c \
 	drivers/lego/ev3/legoev3_ports_core.c \
 	drivers/lego/motors/{dc,servo,tacho}_motor_class.c \
 	drivers/lego/motors/rcx_{led,motor}.c \
@@ -46,6 +46,6 @@ rm -f ${WEBSITE}/docs/ports/*.markdown
 ./port-defs-to-markdown.py ${KERNEL} ${WEBSITE} \
 	drivers/lego/brickpi/brickpi_ports_{in,out}.c \
 	drivers/lego/ev3/legoev3_ports_{in,out}.c \
-	drivers/lego/pistorms/pistorms_ports_in.c \
+	drivers/lego/pistorms/pistorms_ports_{in,out}.c \
 	drivers/lego/sensors/{ht_nxt_smux,ms_ev3_smux,ms_nxtmmx}.c \
 	drivers/lego/wedo/wedo_port.c
