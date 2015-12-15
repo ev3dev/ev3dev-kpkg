@@ -18,7 +18,8 @@ rm -f ${WEBSITE}/docs/drivers/*.markdown
 	drivers/lego/sensors/ev3_uart_sensor_ld.c \
 	drivers/lego/sensors/ht_nxt_smux_i2c_sensor.c \
 	drivers/lego/sensors/lego_sensor_class.c \
-	drivers/lego/sensors/nxt_i2c_sensor_core.c
+	drivers/lego/sensors/nxt_i2c_sensor_core.c \
+	drivers/lego/user/user_lego_{configfs,sensor}.c
 
 rm -f ${WEBSITE}/docs/sensors/*.markdown
 ./sensor-defs-to-markdown.py \

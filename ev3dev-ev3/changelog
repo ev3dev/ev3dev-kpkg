@@ -1,3 +1,19 @@
+linux-source-3.16.7-ckt21-9-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Merge upsrteam kernel 3.16.7-ckt21.
+  * Enable sixaxis joystick modules (with patch for Gasia - thanks @vs7)
+  * Disable ramdisk and enable zram.
+  * /proc/cpuinfo now shows actual hardware revision and serial number.
+  * Enable USB over IP modules.
+
+  * Update to lego driver level 9:
+    * Initial support for user-defined sensors.
+    * Renamed `port_name` attributes to `address`. Affects all subsystems.
+    * Documentation fixes (thanks @ddemidov, @bmegli)
+    * [rhempel] Add `text_value` attribute to lego-sensor class.
+
+ -- David Lechner <david@lechnology.com>  Tue, 15 Dec 2015 15:13:40 -0600
+
 linux-source-3.16.7-ckt19-8-ev3dev-ev3 (1) stable; urgency=medium
 
   * Merge upstream kernel 3.16.7-ckt19.

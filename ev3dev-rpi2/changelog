@@ -1,3 +1,17 @@
+linux-source-4.1.15-9-ev3dev-rpi2 (1) stable; urgency=medium
+
+  * Merge upsrteam kernel 4.1.15
+  * Rename BrickPi LEDs from brickpi{1,2}:blue:ev3dev to
+    brickpi:led{1,2}:blue:ev3dev
+
+  * Update to lego driver level 9:
+    * Initial support for user-defined sensors.
+    * Renamed `port_name` attributes to `address`. Affects all subsystems.
+    * Documentation fixes (thanks @ddemidov, @bmegli)
+    * [rhempel] Add `text_value` attribute to lego-sensor class.
+
+ -- David Lechner <david@lechnology.com>  Tue, 15 Dec 2015 15:25:02 -0600
+
 linux-source-4.1.12-8-ev3dev-rpi2 (1) stable; urgency=medium
 
   * Update to upstream kernel commit 0aa6fa69a7874060590c8cb4fabdb9a222501a08
