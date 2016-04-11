@@ -1,3 +1,34 @@
+linux-source-3.16.7-ckt26-10-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Merge upstream kernel 3.16.7-ckt26
+  * Disable RTC_HCTOSYS
+  * Enable SONY_FF
+  * Fix Sony Dualshock driver for newer controllers.
+  * Fix camera button on LEGO Vision Commander webcams
+
+  * Update to lego driver level 10:
+    * Fix system lockups due to failure to read battery voltage.
+    * Remove unused properties from battery drivers.
+    * Major changes to tacho-motor class:
+        * stop_command attribute is renamed to stop_action
+        * run commands (except run-direct) now always use speed regulation
+        * encoder_polarity attribute is removed
+        * speed_regulation attribute is removed
+        * BrickPi motors now work mostly like EV3 motors
+        * Behavior of polarity attribute changed
+        * Ramping should work now (mostly)
+        * new max_speed attribute
+        * new linear motor type - has count_per_m, max_count and
+          full_travel_count attributes instead of max_speed attribute
+    * BrickPi polling is now 4ms instead of 10ms
+    * Fix HiTechnic Compass sensor driver (Thanks @markosko)
+    * Fix HiTechnic Angle sensor driver (Thanks @harmooni)
+    * Changed EVB in/out port address scheme
+    * Changed BrickPi in/out port address scheme
+    * Fixed some BrickPi sensor issues
+
+ -- David Lechner <david@lechnology.com>  Sun, 10 Apr 2016 23:29:13 -0500
+
 linux-source-3.16.7-ckt21-9-ev3dev-ev3 (1) stable; urgency=medium
 
   * Merge upsrteam kernel 3.16.7-ckt21.
