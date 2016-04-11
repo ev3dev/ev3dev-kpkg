@@ -6,7 +6,10 @@
 	url = git://github.com/ev3dev/rtl8188eu
 [submodule "ev3dev.github.io"]
 	path = ev3dev.github.io
-	url = git@github.com:ev3dev/ev3dev.github.io
+	url = git://github.com/ev3dev/ev3dev.github.io
 [submodule "rpi-kernel"]
 	path = rpi-kernel
 	url = git://github.com/ev3dev/rpi-kernel
+[submodule "bb.org-kernel"]
+	path = bb.org-kernel
+	url = git://github.com/ev3dev/bb.org-kernel

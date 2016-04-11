@@ -2,26 +2,39 @@
 
 set -e
 
-if [ "$RPI" = "1" ]; then
-    OVERLAY_DIR="ev3dev-rpi"
-    DEBARCH="armhf"
-    CROSS_COMPILE=/usr/lib/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-
-    DEFCONFIG="bcmrpi_defconfig"
-    DPUT_HOST="rpi-ev3dev"
-elif [ "$RPI" = "2" ]; then
-    OVERLAY_DIR="ev3dev-rpi2"
-    DEBARCH="armhf"
-    CROSS_COMPILE=/usr/lib/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-
-    DEFCONFIG="bcm2709_defconfig"
-    DPUT_HOST="ev3dev"
-    APPEND_VERSION="2"
-else
+if [ "$FLAVOR" = "ev3" ]; then
     OVERLAY_DIR="ev3dev-ev3"
+    KERNEL_DIR="kernel"
     DEBARCH="armel"
     CROSS_COMPILE=/opt/arm-2011.03/bin/arm-none-eabi-
     MODULES_TARGET="modules"
     DEFCONFIG="ev3dev_defconfig"
     DPUT_HOST="ev3dev"
+elif [ "$FLAVOR" = "bb.org" ]; then
+    OVERLAY_DIR="ev3dev-bb.org"
+    KERNEL_DIR="bb.org-kernel"
+    DEBARCH="armhf"
+    CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-linaro-arm-linux-gnueabihf-5.2/bin/arm-linux-gnueabihf-
+    DEFCONFIG="bb.org_defconfig"
+    DPUT_HOST="ev3dev"
+elif [ "$FLAVOR" = "rpi" ]; then
+    OVERLAY_DIR="ev3dev-rpi"
+    KERNEL_DIR="rpi-kernel"
+    DEBARCH="armhf"
+    CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-
+    DEFCONFIG="bcmrpi_defconfig"
+    DPUT_HOST="rpi-ev3dev"
+elif [ "$FLAVOR" = "rpi2" ]; then
+    OVERLAY_DIR="ev3dev-rpi2"
+    KERNEL_DIR="rpi-kernel"
+    DEBARCH="armhf"
+    CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-
+    DEFCONFIG="bcm2709_defconfig"
+    DPUT_HOST="ev3dev"
+    APPEND_VERSION="2"
+else
+    echo "Must specify kernel flavor. FLAVOR={ev3,bb.org,rpi,rpi2}"
+    exit 1
 fi
 
 CHANGELOG="${OVERLAY_DIR}/changelog"
@@ -53,12 +66,7 @@ if [ ! -z $MODULES_TARGET ]; then
 fi
 
 # change to the kernel directory to do the actual building
-
-if [ -z "$RPI" ]; then
-    pushd kernel
-else
-    pushd rpi-kernel
-fi
+pushd $KERNEL_DIR
 
 KERNEL_VERSION=$(make ARCH=arm kernelversion)${APPEND_VERSION}
 
