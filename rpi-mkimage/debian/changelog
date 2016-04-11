@@ -1,0 +1,5 @@
+rpi-mkimage (20160406) stable; urgency=medium
+
+  * Initial release using scripts from rpi kernel instead of rpi-tools.
+
+ -- David Lechner <david@lechnology.com>  Sun, 10 Apr 2016 18:57:22 -0500
