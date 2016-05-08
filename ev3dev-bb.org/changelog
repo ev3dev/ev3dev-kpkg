@@ -1,3 +1,14 @@
+linux-source-4.4.9-ti-rt-r25-11-ev3dev-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.9-ti-rt-r25
+  * Fix EV3/UART sensor not working on input port 4.
+
+  * Update to lego driver level 11:
+    * Fix run-direct tacho-motor command not working on EV3/EVB
+    * [kortschak] Add support for mindsensors.com pressure sensor
+
+ -- David Lechner <david@lechnology.com>  Sat, 07 May 2016 23:58:54 -0500
+
 linux-source-4.1.18-ti-rt-r56-10-ev3dev-bb.org (1) stable; urgency=medium
 
   * Merge upstream kernel 4.1.18-ti-rt-r56
