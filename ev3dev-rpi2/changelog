@@ -1,3 +1,13 @@
+linux-source-4.4.9-11-ev3dev-rpi2 (1) stable; urgency=medium
+
+  * Rebase on uptream kernel 4.4.9 (68bead249ca6ad97fc39a0780471f4b65402afc1)
+
+  * Update to lego driver level 11:
+    * Fix run-direct tacho-motor command not working on EV3/EVB
+    * [kortschak] Add support for mindsensors.com pressure sensor
+
+ -- David Lechner <david@lechnology.com>  Sun, 08 May 2016 00:03:38 -0500
+
 linux-source-4.1.21-10-ev3dev-rpi2 (1) stable; urgency=medium
 
   * Merge upstream kernel 4.1.21
