@@ -1,3 +1,14 @@
+linux-source-4.4.9-11-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.9
+  * Improve deadlock issues when booting with EV3/UART sensors attached
+
+  * Update to lego driver level 11:
+    * Fix run-direct tacho-motor command not working on EV3/EVB
+    * [kortschak] Add support for mindsensors.com pressure sensor
+
+ -- David Lechner <david@lechnology.com>  Sun, 08 May 2016 00:02:41 -0500
+
 linux-source-3.16.7-ckt26-10-ev3dev-ev3 (1) stable; urgency=medium
 
   * Merge upstream kernel 3.16.7-ckt26
