@@ -1,3 +1,18 @@
+linux-source-4.4.12-ti-rt-r30-12-ev3dev-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.12-ti-rt-r30
+
+  * Update to lego driver level 12:
+    * Documentation fixes.
+    * [kortschak] LEGO NXT Temperature sensor support
+    * [kortschak] Fix LEGO NXT Power Storage sensor support
+    * [bmegli] Fix null pointer dereference in EV3 UART line discipline
+    * [dlech] Fix stack corruption on bad message size in EV3 UART line
+              discipline
+    * [dlech] Fix possible crash on shutdown in EV3 UART line discipline
+
+ -- David Lechner <david@lechnology.com>  Tue, 14 Jun 2016 20:33:46 -0500
+
 linux-source-4.4.9-ti-rt-r25-11-ev3dev-bb.org (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.9-ti-rt-r25
