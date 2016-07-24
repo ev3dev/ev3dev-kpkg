@@ -1,3 +1,22 @@
+linux-source-4.4.15-13-ev3dev-rpi (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.15 (19cf22758bad1e120ee13a5170f59df560dfcdea)
+  * Add device tree properties for bluetooth support on RPi 3.
+
+  * Update to lego driver level 13:
+    * Remove angle value from `ALL` mode on PixyCam driver
+    * Remove `COL-CODE` and `ANGLE` modes from PixyCam driver
+    * Add `other-i2c` mode for EV3 input ports
+    * Fix EV3/UART sensors with only one mode
+    * Fix overflow in `lego-sensor` class values.
+    * Fixed some issues with EVB sound driver.
+    * Rename Firgelli motor drivers.
+    * Fix occasionally EAGAIN error in EVB battery driver.
+    * Fix ramping not working correctly for small ramp times in tacho-motor
+      class (thanks @rhempel)
+
+ -- David Lechner <david@lechnology.com>  Sun, 24 Jul 2016 16:31:48 -0500
+
 linux-source-4.4.13-12-ev3dev-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.13 (e88b69aa792dbe2b289ff528c0d07303068aa0aa)
