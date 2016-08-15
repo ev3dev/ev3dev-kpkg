@@ -1,3 +1,15 @@
+linux-source-4.4.17-14-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.17.
+  * Enable XBox gamepad driver.
+  * Fix PS4 controller performance regression. Thanks @meehien.
+
+  * Update to lego driver level 14:
+    * Port drivers from FatcatLab's EVB on Beaglebone.
+    * Fix intermittent battery voltage retry error on EVB.
+
+ -- David Lechner <david@lechnology.com>  Mon, 15 Aug 2016 14:11:11 -0500
+
 linux-source-4.4.15-13-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.15

@@ -1,3 +1,14 @@
+linux-source-4.4.16-ti-rt-r38-14-ev3dev-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.16-ti-rt-r38.
+  * Invert pin 6 on output ports.
+
+  * Update to lego driver level 14:
+    * Port drivers from FatcatLab's EVB on Beaglebone.
+    * Fix intermittent battery voltage retry error on EVB.
+
+ -- David Lechner <david@lechnology.com>  Mon, 15 Aug 2016 14:49:17 -0500
+
 linux-source-4.4.15-ti-rt-r37-13-ev3dev-bb.org (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.15-ti-rt-r37
