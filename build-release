@@ -41,12 +41,6 @@ CHANGELOG="${OVERLAY_DIR}/changelog"
 
 REVISION=$(dpkg-parsechangelog -l${CHANGELOG}| sed -n -e 's/^Version: //p')
 
-if [ ! -z "$1" ]; then
-    REPO=$1
-else
-    REPO="test"
-fi
-
 PACKAGE_VERSION=$(dpkg-parsechangelog -l${CHANGELOG}| sed -n -e 's/Source: linux-source-//p')
 
 # make sure git is ignoring debian/control in all of the modules because
@@ -75,7 +69,7 @@ if [ "${PACKAGE_VERSION}" != "${KERNEL_VERSION}" ]; then
     exit 1
 fi
 
-if [ "${REPO}" != "test" ]; then
+if [ "$1" != "test" ]; then
     git tag "v${KERNEL_VERSION}_${REVISION//\~/rc}"
     pushd drivers/lego
     git tag "v${KERNEL_VERSION}_${REVISION//\~/rc}"
@@ -111,5 +105,5 @@ cleanup
 cd ..
 echo "---- SIGNING AND UPLOADING ----"
 debsign *.changes
-dput ${DPUT_HOST}.${REPO} *.changes
+dput ${DPUT_HOST} *.changes
 rm -f *.deb *.changes *.upload
