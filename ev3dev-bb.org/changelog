@@ -1,3 +1,15 @@
+linux-source-4.4.19-ti-rt-r41-15-ev3dev-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.19-ti-rt-r41.
+  * Device tree updates for I2C support.
+
+  * Update for lego driver level 15:
+    * I2C support for FatcatLab EVB on BeagleBone
+    * Fix sample rates in motor driver
+    * Fix some spurious error messages
+
+ -- David Lechner <david@lechnology.com>  Sun, 04 Sep 2016 16:32:35 -0500
+
 linux-source-4.4.16-ti-rt-r38-14-ev3dev-bb.org (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.16-ti-rt-r38.

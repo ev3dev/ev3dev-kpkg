@@ -1,3 +1,16 @@
+linux-source-4.4.19-15-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.19.
+  * Fix I2C sensors/sound not working correctly.
+  * Enable MIDI kernel modules.
+
+  * Update for lego driver level 15:
+    * I2C support for FatcatLab EVB on BeagleBone
+    * Fix sample rates in motor driver
+    * Fix some spurious error messages
+
+ -- David Lechner <david@lechnology.com>  Sun, 04 Sep 2016 16:05:20 -0500
+
 linux-source-4.4.17-14-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.17.

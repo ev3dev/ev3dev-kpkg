@@ -1,3 +1,14 @@
+linux-source-4.4.19-15-ev3dev-rpi2 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.19.
+
+  * Update for lego driver level 15:
+    * I2C support for FatcatLab EVB on BeagleBone
+    * Fix sample rates in motor driver
+    * Fix some spurious error messages
+
+ -- David Lechner <david@lechnology.com>  Sun, 04 Sep 2016 16:56:20 -0500
+
 linux-source-4.4.17-14-ev3dev-rpi2 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.17 (d31c6f2420afca543abf466e6bc18c17f15eb291).
