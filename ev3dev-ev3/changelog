@@ -1,3 +1,17 @@
+linux-source-4.4.24-16-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.24.
+
+  * Update for lego driver level 16:
+    * Fix poll(2) support on EV3 motor driver `state` attribute - thanks
+      @kortschak
+    * Add NXT sensor detection to lms2012 device connection manager
+    * Convert lms2012 drivers to platform devices so that they automatically
+      load
+    * Remove dependency on platform-specific timer from lms2012 motor driver
+
+ -- David Lechner <david@lechnology.com>  Sat, 15 Oct 2016 11:11:25 -0500
+
 linux-source-4.4.19-15-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.19.

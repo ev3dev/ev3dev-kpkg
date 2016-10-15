@@ -1,3 +1,19 @@
+linux-source-4.4.24-ti-rt-r55-16-ev3dev-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.24-ti-rt-r55.
+  * QuestCape v1.4 support
+  * lms2012-compat support for EVB
+
+  * Update for lego driver level 16:
+    * Fix poll(2) support on EV3 motor driver `state` attribute - thanks
+      @kortschak
+    * Add NXT sensor detection to lms2012 device connection manager
+    * Convert lms2012 drivers to platform devices so that they automatically
+      load
+    * Remove dependency on platform-specific timer from lms2012 motor driver
+
+ -- David Lechner <david@lechnology.com>  Sat, 15 Oct 2016 12:15:46 -0500
+
 linux-source-4.4.19-ti-rt-r41-15-ev3dev-bb.org (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.19-ti-rt-r41.
