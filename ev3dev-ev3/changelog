@@ -1,3 +1,14 @@
+linux-source-4.4.32-17-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.32
+
+  * Update to lego driver level 17:
+    * Fix motors not running at high speed after first run command
+    * Fix motor "stalled" when starting (thanks @ddemidov)
+    * Added FatcatLab UART sensor support
+
+ -- David Lechner <david@lechnology.com>  Wed, 16 Nov 2016 11:03:16 -0600
+
 linux-source-4.4.24-16-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.24.
