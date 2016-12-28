@@ -208,7 +208,7 @@ def main():
             print('sensor_index:', idx, file=out_file)
             print('---', file=out_file)
             print('', file=out_file)
-            print('{% include sensor.md %}', file=out_file)
+            print('{% include /docs/sensor.md %}', file=out_file)
 
 if __name__ == '__main__':
     main()
