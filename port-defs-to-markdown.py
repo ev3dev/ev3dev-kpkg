@@ -151,7 +151,7 @@ def main():
             print('port_index:', idx, file=out_file)
             print('---', file=out_file)
             print('', file=out_file)
-            print('{% include port.md %}', file=out_file)
+            print('{% include /docs/port.md %}', file=out_file)
 
 if __name__ == '__main__':
     main()

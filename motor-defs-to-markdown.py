@@ -210,7 +210,7 @@ def main():
             print('motor_index:', idx, file=out_file)
             print('---', file=out_file)
             print('', file=out_file)
-            print('{% include motor.md %}', file=out_file)
+            print('{% include /docs/motor.md %}', file=out_file)
 
 if __name__ == '__main__':
     main()
