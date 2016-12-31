@@ -18,7 +18,6 @@ elif [ "$FLAVOR" = "ev3-lms2012" ]; then
     MODULES_TARGET="modules"
     DEFCONFIG="ev3dev_defconfig"
     DPUT_HOST="ev3dev-debian"
-    APPEND_VERSION="-ev3dev-bpo-stretch-r1-ev3-lms2012"
 elif [ "$FLAVOR" = "bb.org" ]; then
     OVERLAY_DIR="ev3dev-bb.org"
     KERNEL_DIR="bb.org-kernel"
@@ -40,7 +39,6 @@ elif [ "$FLAVOR" = "rpi2" ]; then
     CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-
     DEFCONFIG="bcm2709_defconfig"
     DPUT_HOST="ev3dev-debian"
-    APPEND_VERSION="2"
 else
     echo "Must specify kernel flavor. FLAVOR={ev3,bb.org,rpi,rpi2}"
     exit 1
@@ -71,20 +69,6 @@ fi
 # change to the kernel directory to do the actual building
 pushd $KERNEL_DIR
 
-KERNEL_VERSION=$(make ARCH=arm kernelversion)${APPEND_VERSION}
-
-if [ "${PACKAGE_VERSION}" != "${KERNEL_VERSION}" ]; then
-    echo "Kernel version (${KERNEL_VERSION}) does not match ${CHANGELOG} version (${PACKAGE_VERSION})."
-    exit 1
-fi
-
-if [ "$1" != "test" ]; then
-    git tag "v${KERNEL_VERSION}_${REVISION//\~/rc}"
-    pushd drivers/lego
-    git tag "v${KERNEL_VERSION}_${REVISION//\~/rc}"
-    popd
-fi
-
 cleanup() {
     echo "---- CLEANING UP ----"
     make ARCH=arm distclean
@@ -93,25 +77,46 @@ cleanup() {
     find ../modules -mindepth 1 -maxdepth 1 -type d -exec make -C {} clean \;
 }
 cleanup
+
 echo "---- LOADING DEFAULT CONFIGURATION ----"
 make ARCH=arm ${DEFCONFIG}
 # make sure kernel version (uname -v) matches debian revision
 echo $(( $(expr match ${REVISION} '^[0-9]*') - 1 )) > .version
+
+echo "---- CHECKING REVISION -----"
+# Don't add '+' to version
+touch .scmversion
+KERNEL_VERSION=$(make ARCH=arm kernelrelease | tail -n 1)
+
+if [ "${PACKAGE_VERSION}" != "${KERNEL_VERSION}" ]; then
+    echo "Kernel version (${KERNEL_VERSION}) does not match ${CHANGELOG} version (${PACKAGE_VERSION})."
+    exit 1
+fi
+
+if [ "$1" != "test" ]; then
+    git tag -a "v${KERNEL_VERSION}_${REVISION//\~/rc}" -m "official release"
+    pushd drivers/lego
+    git tag -a "v${KERNEL_VERSION}_${REVISION//\~/rc}" -m "official release"
+    popd
+fi
+
 echo "---- BUILDING PACKAGES ----"
 export $(dpkg-architecture -a${DEBARCH})
-LOCALVERSION="" MODULE_LOC=../modules \
+MODULE_LOC=../modules \
     make-kpkg --rootcmd fakeroot --overlay-dir ../${OVERLAY_DIR} \
     --arch arm --subarch=${DEBARCH} --cross-compile ${CROSS_COMPILE} \
     --initrd --revision ${REVISION} --jobs $(nproc) \
-    $([ ! -z ${APPEND_VERSION} ] echo "--append-to-version=${APPEND_VERSION}") \
     kernel_image kernel_headers ${MODULES_TARGET}
+
 echo "---- GENERATING CHANGES FILE ----"
 CHANGES_FILE="../ev3dev-kernel_${KERNEL_VERSION}_${REVISION}_${DEBARCH}.changes"
 dpkg-genchanges -b > ${CHANGES_FILE}
 # dpkg-genchanges includes host arch for some reason, so we have to remove it
 sed -i "s/ amd64//" ${CHANGES_FILE}
+
 cleanup
-cd ..
+popd
+
 echo "---- SIGNING AND UPLOADING ----"
 debsign *.changes
 dput ${DPUT_HOST} *.changes
