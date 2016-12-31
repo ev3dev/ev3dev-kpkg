@@ -1,3 +1,10 @@
+linux-source-4.9.0-ev3dev-bpo-stretch-r2-ev3-lms2012 (1) stable; urgency=medium
+
+  * Fix hang on boot
+  * Fix zram LZ4 compression missing
+
+ -- David Lechner <david@lechnology.com>  Sat, 31 Dec 2016 14:08:42 -0600
+
 linux-source-4.9.0-ev3dev-bpo-stretch-r1-ev3-lms2012 (1) stable; urgency=low
 
   Initial release.
