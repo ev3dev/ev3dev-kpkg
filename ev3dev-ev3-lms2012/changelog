@@ -1,3 +1,14 @@
+linux-source-4.9.4-ev3dev-bpo-stretch-r4-ev3-lms2012 (1) stable; urgency=medium
+
+  * Add new power supply driver for lms2012-comapt
+  * Fix pops when starting and stoping PCM playback
+  * Change sound driver to have separate volume controls for PCM and Beep
+  * Fix motors running slower than official EV3 firmware in lms2012-compat
+  * Change motor PWM frequency to 13.2kHz in lms2012-comapt
+  * Rebase on upstream kernel 4.9.4
+
+ -- David Lechner <david@lechnology.com>  Wed, 18 Jan 2017 13:24:14 -0600
+
 linux-source-4.9.0-ev3dev-bpo-stretch-r3-ev3-lms2012 (1) stable; urgency=medium
 
   * Fix motor speed control not working in lms2012-compat
