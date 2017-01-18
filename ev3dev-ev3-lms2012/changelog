@@ -1,3 +1,11 @@
+linux-source-4.9.0-ev3dev-bpo-stretch-r3-ev3-lms2012 (1) stable; urgency=medium
+
+  * Fix motor speed control not working in lms2012-compat
+  * Fix EV3 Medium motor detection in lms2012-compat
+  * Fix USB not working with lms2012-compat
+
+ -- David Lechner <david@lechnology.com>  Tue, 03 Jan 2017 17:25:20 -0600
+
 linux-source-4.9.0-ev3dev-bpo-stretch-r2-ev3-lms2012 (1) stable; urgency=medium
 
   * Fix hang on boot
