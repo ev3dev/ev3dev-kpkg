@@ -1,3 +1,15 @@
+linux-source-4.4.43-ti-rt-r84-18-ev3dev-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.43-ti-rt-r84
+  * Disable PREEMPT_RT
+  * Fix issues with detection of motors
+
+  * Update to lego driver level 18:
+    * Fix occasional buffer overrun on EV3/UART sensors (thanks @bmegli)
+    * Fix automatic detection of some HiTechnic sensors
+
+ -- David Lechner <david@lechnology.com>  Wed, 25 Jan 2017 18:41:02 -0600
+
 linux-source-4.4.31-ti-rt-r67-17-ev3dev-bb.org (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.31-ti-rt-r67
