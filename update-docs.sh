@@ -46,6 +46,7 @@ rm -f ${WEBSITE}/docs/motors/*.markdown
 rm -f ${WEBSITE}/docs/ports/*.markdown
 ./port-defs-to-markdown.py ${KERNEL} ${WEBSITE} \
 	drivers/lego/brickpi/brickpi_ports_{in,out}.c \
+	drivers/lego/brickpi3/brickpi3_ports_{in,out}.c \
 	drivers/lego/ev3/legoev3_ports_{in,out}.c \
 	drivers/lego/pistorms/pistorms_ports_{in,out}.c \
 	drivers/lego/sensors/{ht_nxt_smux,ms_ev3_smux,ms_nxtmmx}.c \
