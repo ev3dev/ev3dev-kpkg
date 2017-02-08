@@ -2,3 +2,4 @@
 *.dsc
 *.changes
 *.upload
+.vscode/
