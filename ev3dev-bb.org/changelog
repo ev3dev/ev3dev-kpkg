@@ -1,3 +1,13 @@
+linux-source-4.4.47-ti-rt-r87-19-ev3dev-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.47-ti-rt-r87
+
+  * Update to lego driver level 19:
+    * Workaround for MS Absolute IMU sensor on BrickPi(+) - thanks @bmegli
+    * Brickpi3 support
+
+ -- David Lechner <david@lechnology.com>  Wed, 08 Feb 2017 14:10:04 -0600
+
 linux-source-4.4.43-ti-rt-r84-18-ev3dev-bb.org (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.43-ti-rt-r84
