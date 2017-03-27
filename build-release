@@ -95,9 +95,6 @@ fi
 
 if [ "$1" != "test" ]; then
     git tag -a "v${KERNEL_VERSION}_${REVISION//\~/rc}" -m "official release"
-    pushd drivers/lego
-    git tag -a "v${KERNEL_VERSION}_${REVISION//\~/rc}" -m "official release"
-    popd
 fi
 
 echo "---- BUILDING PACKAGES ----"
