@@ -114,7 +114,9 @@ sed -i "s/ amd64//" ${CHANGES_FILE}
 cleanup
 popd
 
-echo "---- SIGNING AND UPLOADING ----"
-debsign *.changes
-dput ${DPUT_HOST} *.changes
-rm -f *.deb *.changes *.upload
+if [ "$1" != "test" ]; then
+    echo "---- SIGNING AND UPLOADING ----"
+    debsign *.changes
+    dput ${DPUT_HOST} *.changes
+    rm -f *.deb *.changes *.upload
+fi
