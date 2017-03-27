@@ -78,6 +78,10 @@ cleanup() {
 }
 cleanup
 
+if [ "$1" == "clean" ]; then
+    exit 0
+fi
+
 echo "---- LOADING DEFAULT CONFIGURATION ----"
 make ARCH=arm ${DEFCONFIG}
 # make sure kernel version (uname -v) matches debian revision
