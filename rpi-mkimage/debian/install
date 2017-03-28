@@ -1,2 +1,0 @@
-../rpi-kernel/scripts/knlinfo /usr/bin
-../rpi-kernel/scripts/mkknlimg /usr/bin
