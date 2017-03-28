@@ -1,3 +1,20 @@
+linux-source-4.9.17-ev3dev-1.0.1-rpi (1) testing; urgency=medium
+
+  * Enable BrickPi3 in config
+  * lego-linux-drivers 1.0.1
+    * Fixed Brickpi3 LED name
+
+ -- David Lechner <david@lechnology.com>  Mon, 27 Mar 2017 5:50:50 -0500
+
+
+linux-source-4.9.17-ev3dev-1.0.0-rpi (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.17
+  * Add physical dimension support for PiStorms and Adafruit display
+  * lego-linux-drivers 1.0.0
+
+ -- David Lechner <david@lechnology.com>  Mon, 27 Mar 2017 12:40:50 -0500
+
 linux-source-4.4.47-19-ev3dev-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.47
