@@ -1,3 +1,9 @@
+linux-source-4.4.50-19-ev3dev-rpi (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.50
+
+ -- David Lechner <david@lechnology.com>  Sun, 02 Apr 2017 19:32:03 -0500
+
 linux-source-4.4.47-19-ev3dev-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.47
