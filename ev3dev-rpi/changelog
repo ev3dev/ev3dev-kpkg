@@ -1,3 +1,13 @@
+linux-source-4.4.61-20-ev3dev-rpi (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.61
+  * Update to ev3dev driver level 20:
+    * Update for BrickPi3 firmware 1.4.x (thanks @sanjayseshan)
+    * Support for BrickPi3 stacking
+    * Fix BrickPi3 LED name
+
+ -- David Lechner <david@lechnology.com>  Fri, 14 Apr 2017 13:53:13 -0500
+
 linux-source-4.4.50-19-ev3dev-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.50

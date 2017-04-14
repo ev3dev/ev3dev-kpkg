@@ -1,3 +1,15 @@
+linux-source-4.4.61-20-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.61
+  * Enable some kernel modules for GSM modems
+  * Update to lego driver level 20:
+    * Update for BrickPi3 firmware 1.4.x (thanks @sanjayseshan)
+    * Support for BrickPi3 stacking
+    * Fix BrickPi3 LED name
+    * Fix stopping before run-to-*-pos is complete when stop_action is hold
+
+ -- David Lechner <david@lechnology.com>  Fri, 14 Apr 2017 14:08:04 -0500
+
 linux-source-4.4.59-19-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.59
