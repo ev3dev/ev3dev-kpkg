@@ -1,3 +1,14 @@
+linux-source-4.9.22-ev3dev-1.1.0-ev3 (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.22
+  * lego-linux-drivers 1.1.0
+    * Update for BrickPi3 firmware 1.4.x (thanks @sanjayseshan)
+    * Support for BrickPi3 stacking
+    * Fix stopping before run-to-*-pos is complete when stop_action is hold
+    * Add grayscale mode for EV3 LCD
+
+ -- David Lechner <david@lechnology.com>  Fri, 14 Apr 2017 18:48:51 -0500
+
 linux-source-4.9.18-ev3dev-1.0.1-ev3 (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.18
