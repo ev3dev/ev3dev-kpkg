@@ -1,3 +1,10 @@
+linux-source-4.4.68-20-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.68
+  * Enable PPP kernel modules
+
+ -- David Lechner <david@lechnology.com>  Mon, 15 May 2017 12:40:57 -0500
+
 linux-source-4.4.61-20-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.61

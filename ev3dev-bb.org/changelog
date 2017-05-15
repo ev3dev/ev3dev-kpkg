@@ -1,3 +1,9 @@
+linux-source-4.4.62-ti-rt-r102-20-ev3dev-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.62-ti-rt-r102
+
+ -- David Lechner <david@lechnology.com>  Mon, 15 May 2017 13:01:43 -0500
+
 linux-source-4.4.61-ti-rt-r98-20-ev3dev-bb.org (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.61-ti-rt-r98
