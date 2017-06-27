@@ -1,3 +1,15 @@
+linux-source-4.9.34-ev3dev-1.2.0-ev3 (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.34
+  * Enable modules for PPP
+  * Enable modules for tethering
+  * Use mainline EV3 battery driver
+  * lego-linux-drivers 1.2.0
+    * Fix issues with lms2012 compat drivers not working on QuestCape
+    * Remove EV3 battery driver
+
+ -- David Lechner <david@lechnology.com>  Mon, 26 Jun 2017 20:35:33 -0500
+
 linux-source-4.9.22-ev3dev-1.1.0-ev3 (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.22

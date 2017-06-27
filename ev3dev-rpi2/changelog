@@ -1,3 +1,12 @@
+linux-source-4.9.34-ev3dev-1.2.0-rpi2 (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.34 (3e22e20f80899847293ef835b083e36ecb866d2d)
+  * lego-linux-drivers 1.2.0
+    * Fix issues with lms2012 compat drivers not working on QuestCape
+    * Remove EV3 battery driver
+
+ -- David Lechner <david@lechnology.com>  Mon, 26 Jun 2017 20:35:56 -0500
+
 linux-source-4.9.22-ev3dev-1.1.0-rpi2 (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.22 (72134397d72079a533c8fc742701fdc7f5ae7c5b)
