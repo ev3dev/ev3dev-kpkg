@@ -1,3 +1,14 @@
+linux-source-4.9.39-ev3dev-1.3.0-ev3 (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.39
+  * Fix LCD not working with lms2012-compat device tree
+  * lego-linux-drivers 1.3.0
+    * Enable 9V on input port pin 1 in `other-i2c` mode
+    * Re-work modes and commands on HiTechnic Color Sensors V2
+    * Support for mindsensors.com NXTCam5
+
+ -- David Lechner <david@lechnology.com>  Tue, 25 Jul 2017 15:04:58 -0500
+
 linux-source-4.9.34-ev3dev-1.2.0-ev3 (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.34
