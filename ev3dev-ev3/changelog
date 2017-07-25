@@ -1,3 +1,14 @@
+linux-source-4.4.78-21-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.78
+  * Enable kernel modules needed for tethering
+  * Update to ev3dev driver level 21:
+    * Enable 9V on output port pin 1 in other-i2c mode
+    * Add PASSIVE mode for HiTechnic color sensor v2
+    * Support for mindsensors.com NXTCam5
+
+ -- David Lechner <david@lechnology.com>  Tue, 25 Jul 2017 13:23:26 -0500
+
 linux-source-4.4.68-20-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.68
