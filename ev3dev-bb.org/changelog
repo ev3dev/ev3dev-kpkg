@@ -1,3 +1,17 @@
+linux-source-4.9.41-ev3dev-1.4.0-bb.org (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.41-ti-r53
+  * Fix lms2012-comapt USB not working
+  * Backport userspace LEDs driver
+  * lego-linux-drivers 1.4.0
+    * Fix motors not working on EV3/EVB
+    * Fix HiTechnic Color sensor v2 modes
+    * Breaking change: EV3/EVB input/output port drivers are merged
+      * EV3 port names will be similar to "ev3-ports:in1".
+    * Fix "other-i2c" mode missing on EV3/EVB input ports.
+
+ -- David Lechner <david@lechnology.com>  Fri, 11 Aug 2017 11:18:54 -0500
+
 linux-source-4.9.39-ev3dev-1.3.0-bb.org (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.39-ti-r50
