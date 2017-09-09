@@ -1,3 +1,11 @@
+linux-source-4.4.87-22-ev3dev-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.4.87
+  * Fix color LCD not working.
+  * Maybe fix HiTechnic color sensor v2 raw and passive values
+
+ -- David Lechner <david@lechnology.com>  Sat, 09 Sep 2017 14:29:03 -0500
+
 linux-source-4.4.78-21-ev3dev-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.4.78
