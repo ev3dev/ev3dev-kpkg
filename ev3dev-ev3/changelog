@@ -1,3 +1,14 @@
+linux-source-4.9.47-ev3dev-1.5.0-ev3 (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.47
+  * Enable IPv6
+  * Compile some modules that are always used into the kernel
+  * lego-linux-drivers 1.5.0
+    * Fixed changing some LED suffixes to "brick-status"
+    * New board-info subsystem
+
+ -- David Lechner <david@lechnology.com>  Sat, 09 Sep 2017 12:31:20 -0500
+
 linux-source-4.9.42-ev3dev-1.4.0-ev3 (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.42

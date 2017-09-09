@@ -1,3 +1,12 @@
+linux-source-4.9.48-ev3dev-1.5.0-rpi2 (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.48 (41d3258f63227f079d0542bbbd58fd666a145e51)
+  * lego-linux-drivers 1.5.0
+    * Fixed changing some LED suffixes to "brick-status"
+    * New board-info subsystem
+
+ -- David Lechner <david@lechnology.com>  Sat, 09 Sep 2017 12:31:20 -0500
+
 linux-source-4.9.41-ev3dev-1.4.0-rpi2 (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.41 (4153f509b449f1c1c816cf124c314975c3daa824)
