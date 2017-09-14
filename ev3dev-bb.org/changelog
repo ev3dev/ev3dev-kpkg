@@ -1,3 +1,13 @@
+linux-source-4.9.50-ev3dev-1.5.1-bb.org (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.9.50-ti-r59
+  * lego-linux-drivers 1.5.1
+    * Add BOARD_INFO_TYPE property
+    * Add PiStorms board-info driver
+    * Fix noise after sound playback ends on EV3/EVB
+
+ -- David Lechner <david@lechnology.com>  Thu, 14 Sep 2017 10:28:08 -0500
+
 linux-source-4.9.45-ev3dev-1.5.0-bb.org (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.45-ti-r57
