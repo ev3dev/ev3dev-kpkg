@@ -1,3 +1,20 @@
+linux-source-4.9.59-ev3dev-1.6.0-rpi (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.9.59 (6820d0cbec64cfee481b961833feffec8880111e)
+  * lego-linux-drivers 1.6.0
+    * lego-sensor: Add notify (poll support) for LEGO EV3 touch sensor value0
+    * lego-sensor: Add notify (poll support) for LEGO NXT touch sensor value0
+    * lego-sensor: Reading commands attribute no longer returns an error when
+      there are no commands
+    * lego-sensor: Fix HiTechnic Barometer sensor (untested)
+    * tacho-motor: Don't return error when running to relative position of 0
+    * pistorms: Fix truncated LED name
+    * brickpi3: Implement overloaded and holding motor state flags
+    * brickpi3: Motor attributes duty_cycle and speed are now readable
+    * board-info: Fix crash when unregistering driver
+
+ -- David Lechner <david@lechnology.com>  Tue, 31 Oct 2017 22:08:51 -0500
+
 linux-source-4.9.50-ev3dev-1.5.1-rpi (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.9.50 (12bafdab8214b23223603b75845c5c88f7444b6f)
