@@ -114,5 +114,5 @@ if [ "$1" != "test" ]; then
     echo "---- SIGNING AND UPLOADING ----"
     debsign *.changes
     dput ${DPUT_HOST} *.changes
-    rm -f *.deb *.changes *.upload
+    ./rmdeb
 fi
