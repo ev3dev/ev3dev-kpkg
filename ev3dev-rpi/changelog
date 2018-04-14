@@ -1,3 +1,12 @@
+linux-source-4.14.33-ev3dev-1.6.1-rpi (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.33 (0a76b56e61cf)
+  * lego-linux-drivers 1.6.1
+    * kernel 4.14 compatibility
+    * drop user-defined sensor/led drivers
+
+ -- David Lechner <david@lechnology.com>  Sat, 14 Apr 2018 14:18:25 -0500
+
 linux-source-4.9.59-ev3dev-1.6.0-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.9.59 (6820d0cbec64cfee481b961833feffec8880111e)

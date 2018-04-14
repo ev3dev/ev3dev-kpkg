@@ -1,3 +1,21 @@
+linux-source-4.14.34-ev3dev-1.6.1-ev3 (2) stable; urgency=medium
+
+  * Update rtl8188eu-modules package
+
+ -- David Lechner <david@lechnology.com>  Sat, 14 Apr 2018 13:05:25 -0500
+
+linux-source-4.14.34-ev3dev-1.6.1-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.34
+  * Using mainline kernel driver for LCD display
+  * Dropped PS4 controller rate limit patch (workaround is now possible from
+    userspace)
+  * lego-linux-drivers 1.6.1
+    * kernel 4.14 compatibility
+    * drop user-defined sensor/led drivers
+
+ -- David Lechner <david@lechnology.com>  Sat, 14 Apr 2018 11:53:55 -0500
+
 linux-source-4.9.58-ev3dev-1.6.0-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.9.58
