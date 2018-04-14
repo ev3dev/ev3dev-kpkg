@@ -2,11 +2,12 @@
 
 set -e
 
+CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+
 if [ "$FLAVOR" = "ev3" ]; then
     OVERLAY_DIR="ev3dev-ev3"
     KERNEL_DIR="kernel"
     DEBARCH="armel"
-    CROSS_COMPILE=/opt/arm-2011.03/bin/arm-none-eabi-
     MODULES_TARGET="modules"
     DEFCONFIG="ev3dev_defconfig"
     DPUT_HOST="ev3dev-debian"
@@ -14,21 +15,18 @@ elif [ "$FLAVOR" = "bb.org" ]; then
     OVERLAY_DIR="ev3dev-bb.org"
     KERNEL_DIR="bb.org-kernel"
     DEBARCH="armhf"
-    CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-linaro-arm-linux-gnueabihf-5.2/bin/arm-linux-gnueabihf-
     DEFCONFIG="bb.org_defconfig"
     DPUT_HOST="ev3dev-debian"
 elif [ "$FLAVOR" = "rpi" ]; then
     OVERLAY_DIR="ev3dev-rpi"
     KERNEL_DIR="rpi-kernel"
     DEBARCH="armhf"
-    CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-
     DEFCONFIG="bcmrpi_defconfig"
     DPUT_HOST="ev3dev-raspbian"
 elif [ "$FLAVOR" = "rpi2" ]; then
     OVERLAY_DIR="ev3dev-rpi2"
     KERNEL_DIR="rpi-kernel"
     DEBARCH="armhf"
-    CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-
     DEFCONFIG="bcm2709_defconfig"
     DPUT_HOST="ev3dev-debian"
 else
