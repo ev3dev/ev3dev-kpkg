@@ -1,3 +1,16 @@
+linux-source-4.14.34-ev3dev-2.0.0-rpi (1) stable; urgency=medium
+
+  * rebase on upstream kernel 4.14.34 (f70eae405b5d75f7c41ea300b9f790656f99a203)
+  * lego-linux-drivers 2.0.0
+    * fix NXT/Analog sensor bin_data attribute
+    * convert brickpi from ldisc to serdev
+    * Breaking change: brickpi port name prefix changed from "ttyAMA0" to
+      "serial0-0"
+    * Add HiTechnic compass sensor calibration commands
+    * fix consecutive calls to run-to-rel-pos tacho-motor command
+
+ -- David Lechner <david@lechnology.com>  Sun, 22 Apr 2018 13:48:03 -0500
+
 linux-source-4.14.33-ev3dev-1.6.1-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.33 (0a76b56e61cf)
