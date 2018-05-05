@@ -1,3 +1,10 @@
+linux-source-4.14.37-ev3dev-2.0.1-bb.org (1) stable; urgency=medium
+
+  * rebase on upstream kernel 4.14.37-ti-r46
+  * lego-linux-driver 2.0.1 (no notable changes)
+
+ -- David Lechner <david@lechnology.com>  Sat, 05 May 2018 12:56:59 -0500
+
 linux-source-4.14.35-ev3dev-2.0.0-bb.org (1) stable; urgency=medium
 
   * rebase on upstream kernel 4.14.35-ti-r44

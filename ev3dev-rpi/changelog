@@ -1,3 +1,11 @@
+linux-source-4.14.39-ev3dev-2.0.1-rpi (1) stable; urgency=medium
+
+  * rebase on upstream kernel 4.14.39 (865ddc1393f558198e7e7ce70928ff2e49c4f7f6)
+  * fix pistorms display driver
+  * lego-linux-driver 2.0.1 (no notable changes)
+
+ -- David Lechner <david@lechnology.com>  Sat, 05 May 2018 12:56:59 -0500
+
 linux-source-4.14.34-ev3dev-2.0.0-rpi (1) stable; urgency=medium
 
   * rebase on upstream kernel 4.14.34 (f70eae405b5d75f7c41ea300b9f790656f99a203)

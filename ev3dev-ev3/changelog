@@ -1,3 +1,13 @@
+linux-source-4.14.38-ev3dev-2.0.1-ev3 (1) stable; urgency=medium
+
+  * rebase on upstream kernel 4.14.38
+  * fix bluetooth not working at all
+  * new boot logo
+  * enable ZD1211RW module
+  * lego-linux-driver 2.0.1 (no notable changes)
+
+ -- David Lechner <david@lechnology.com>  Sat, 05 May 2018 12:56:59 -0500
+
 linux-source-4.14.35-ev3dev-2.0.0-ev3 (1) stable; urgency=medium
 
   * rebase on upstream kernel 4.14.35
