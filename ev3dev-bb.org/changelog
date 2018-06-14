@@ -1,3 +1,9 @@
+linux-source-4.14.49-ev3dev-2.0.2-bb.org (1) stable; urgency=medium
+
+  * rebase on upstream kernel 4.14.49-ti-r53
+
+ -- David Lechner <david@lechnology.com>  Wed, 13 Jun 2018 16:50:34 -0500
+
 linux-source-4.14.37-ev3dev-2.0.1-bb.org (1) stable; urgency=medium
 
   * rebase on upstream kernel 4.14.37-ti-r46

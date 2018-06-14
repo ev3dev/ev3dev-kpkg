@@ -1,3 +1,11 @@
+linux-source-4.14.48-ev3dev-2.0.2-rpi2 (1) stable; urgency=medium
+
+  * rebase on upstream kernel 4.14.48 (58eb131ce78d1976dad26c21bd75a7da290cd6aa)
+
+ -- David Lechner <david@lechnology.com>  Wed, 13 Jun 2018 16:50:34 -0500
+
+linux-source-4.14.39-ev3dev-2.0.1-rpi (1) stable; urgency=medium
+
 linux-source-4.14.39-ev3dev-2.0.1-rpi2 (1) stable; urgency=medium
 
   * rebase on upstream kernel 4.14.39 (865ddc1393f558198e7e7ce70928ff2e49c4f7f6)
