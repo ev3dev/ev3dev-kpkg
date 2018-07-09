@@ -1,3 +1,15 @@
+linux-source-4.14.52-ev3dev-2.1.0-rpi2 (1) stable; urgency=medium
+
+  * rebase on upstream kernel 4.14.52 (11dc869d874d04293849d830637130269fd0ada9)
+  * lego-linux-drivers-2.1.0:
+    * Copy soft-UART driver and fix it up to use device tree and share PRU
+      interrupt controller
+    * Add new drivers for PRU
+    * Add new experimental driver for using PRU as tachometer
+    * Add proper powerdown for PiStorms
+
+ -- David Lechner <david@lechnology.com>  Sun, 08 Jul 2018 18:29:17 -0500
+
 linux-source-4.14.48-ev3dev-2.0.2-rpi2 (1) stable; urgency=medium
 
   * rebase on upstream kernel 4.14.48 (58eb131ce78d1976dad26c21bd75a7da290cd6aa)

@@ -1,3 +1,20 @@
+linux-source-4.14.54-ev3dev-2.1.0-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.54
+  * Enable rtl8xxxu Wi-Fi driver
+  * Move soft-UART driver to lego-linux-drivers
+  * Add device tree nodes for soft-UART and PRU remoteproc
+  * Fix naming of device tree for EV3 w/ Adafruit 1.8" color screen
+  * Enable rpmsg chardev driver
+  * lego-linux-drivers-2.1.0:
+    * Copy soft-UART driver and fix it up to use device tree and share PRU
+      interrupt controller
+    * Add new drivers for PRU
+    * Add new experimental driver for using PRU as tachometer
+    * Add proper powerdown for PiStorms
+
+ -- David Lechner <david@lechnology.com>  Sun, 08 Jul 2018 18:29:17 -0500
+
 linux-source-4.14.49-ev3dev-2.0.2-ev3 (1) stable; urgency=medium
 
   * rebase on upstream kernel 4.14.49
