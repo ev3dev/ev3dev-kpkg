@@ -1,3 +1,14 @@
+linux-source-4.14.55-ev3dev-2.2.0-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.55
+  * lego-linux-drivers-2.2.0:
+    * Use PRU for tachometer in legoev3 motor driver
+    * Use DMA to reduce CPU load of analog inputs on EV3
+    * Make poll() system call work for tacho-motor state attribute on all
+      devices
+
+ -- David Lechner <david@lechnology.com>  Sun, 15 Jul 2018 13:01:37 -0500
+
 linux-source-4.14.54-ev3dev-2.1.0-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.54
