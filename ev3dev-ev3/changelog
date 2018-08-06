@@ -1,3 +1,13 @@
+linux-source-4.14.61-ev3dev-2.2.2-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.61
+  * Change PS4 controller Bluetooth polling rate from 4ms to 10 ms
+  * lego-linux-drivers-2.2.2:
+    * Fix deadlock in EV3 motor driver
+    * Retry instead of ignoring error in run-to-pos on BrickPi3
+
+ -- David Lechner <david@lechnology.com>  Mon, 06 Aug 2018 13:24:41 -0500
+
 linux-source-4.14.58-ev3dev-2.2.1-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.58
