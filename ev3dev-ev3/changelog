@@ -1,3 +1,14 @@
+linux-source-4.14.71-ev3dev-2.3.0-ev3 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.71
+  * Implement LED brightness on EV3 using PRU.
+  * lego-linux-drivers-2.3.0:
+    * Fix run-to-abs-pos command on EV3 not ending when already at position_sp.
+    * Fix lego-sensor address attribute for I2C sensors on EV3.
+    * mindsensors.com IR thermometer support. Thanks @donei34.
+    
+ -- David Lechner <david@lechnology.com>  Sun, 23 Sep 2018 13:24:30 -0500
+
 linux-source-4.14.61-ev3dev-2.2.2-ev3 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.61

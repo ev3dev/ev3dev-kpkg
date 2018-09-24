@@ -1,3 +1,13 @@
+linux-source-4.14.71-ev3dev-2.3.0-rpi (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.71 (4f30a5365296658d66ef8a9f878a25d229e2d5fa)
+  * lego-linux-drivers-2.3.0:
+    * Fix run-to-abs-pos command on EV3 not ending when already at position_sp.
+    * Fix lego-sensor address attribute for I2C sensors on EV3.
+    * mindsensors.com IR thermometer support. Thanks @donei34.
+    
+ -- David Lechner <david@lechnology.com>  Sun, 23 Sep 2018 13:24:30 -0500
+
 linux-source-4.14.59-ev3dev-2.2.2-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.59 (ad1d85ad2a7dea6a17e6d3cc32adf6ce0ea844c0)
