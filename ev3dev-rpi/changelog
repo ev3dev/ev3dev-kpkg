@@ -1,3 +1,12 @@
+linux-source-4.14.94-ev3dev-2.3.2-rpi (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.94 (049e03d71027297051bc19499082194ce64cdc91)
+  * lego-linux-drivers-2.3.2
+    * brickpi3: fix writing to tacho-motor position attribute
+    * fix HiTechnic NXT Sensor Multiplexer
+
+ -- David Lechner <david@lechnology.com>  Sun, 27 Jan 2019 21:17:58 -0600
+
 linux-source-4.14.80-ev3dev-2.3.1-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.80 (9d6fdaf722cbb5355f226efcadb30b1bfb7cb0cc)

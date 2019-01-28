@@ -1,3 +1,13 @@
+linux-source-4.14.94-ev3dev-2.3.2-bb.org (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.94-ti-r91
+  * Bluetooth: Fix unnecessary error message for HCI request completion
+  * lego-linux-drivers-2.3.2
+    * brickpi3: fix writing to tacho-motor position attribute
+    * fix HiTechnic NXT Sensor Multiplexer
+
+ -- David Lechner <david@lechnology.com>  Sun, 27 Jan 2019 21:17:58 -0600
+
 linux-source-4.14.79-ev3dev-2.3.1-bb.org (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.79-ti-r83
