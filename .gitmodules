@@ -1,6 +1,6 @@
-[submodule "kernel"]
-	path = kernel
-	url = git://github.com/ev3dev/ev3dev-kernel.git
+[submodule "ev3-kernel"]
+	path = ev3-kernel
+	url = git://github.com/ev3dev/ev3-kernel
 [submodule "rtl8188eu"]
 	path = modules/rtl8188eu
 	url = git://github.com/ev3dev/rtl8188eu
