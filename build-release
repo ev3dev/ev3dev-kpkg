@@ -6,9 +6,8 @@ CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-linaro-6.4.1-2017.11-x86_64_arm-linu
 
 if [ "$FLAVOR" = "ev3" ]; then
     OVERLAY_DIR="ev3dev-ev3"
-    KERNEL_DIR="kernel"
+    KERNEL_DIR="ev3-kernel"
     DEBARCH="armel"
-    MODULES_TARGET="modules"
     DEFCONFIG="ev3dev_defconfig"
     DPUT_HOST="ev3dev-debian"
 elif [ "$FLAVOR" = "bb.org" ]; then

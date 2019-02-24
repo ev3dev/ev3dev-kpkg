@@ -1,3 +1,11 @@
+linux-source-4.19.23-ev3dev-3-beta1-rpi (1) testing; urgency=medium
+
+  * Rebase on upstream kernel 4.19.23 e2d2941326922b63d722ebc46520c3a2287b675f
+  * lego-linux-drivers-3-beta1
+    * minor fixes for update to 4.19 kernel
+  
+ -- David Lechner <david@lechnology.com>  Sat, 23 Feb 2019 17:16:04 -0600
+
 linux-source-4.14.94-ev3dev-2.3.2-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.94 (049e03d71027297051bc19499082194ce64cdc91)
