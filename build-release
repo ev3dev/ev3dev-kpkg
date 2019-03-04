@@ -72,7 +72,7 @@ if [ "$1" == "clean" ]; then
 fi
 
 echo "---- LOADING DEFAULT CONFIGURATION ----"
-make ARCH=arm ${DEFCONFIG}
+make CROSS_COMPILE=${CROSS_COMPILE} ARCH=arm ${DEFCONFIG}
 # make sure kernel version (uname -v) matches debian revision
 echo $(( $(expr match ${REVISION} '^[0-9]*') - 1 )) > .version
 
