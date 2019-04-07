@@ -1,15 +1,15 @@
-[submodule "kernel"]
-	path = kernel
-	url = git://github.com/ev3dev/ev3dev-kernel.git
+[submodule "ev3-kernel"]
+	path = ev3-kernel
+	url = https://github.com/ev3dev/ev3-kernel.git
 [submodule "rtl8188eu"]
 	path = modules/rtl8188eu
-	url = git://github.com/ev3dev/rtl8188eu
+	url = https://github.com/ev3dev/rtl8188eu.git
 [submodule "rpi-kernel"]
 	path = rpi-kernel
-	url = git://github.com/ev3dev/rpi-kernel
+	url = https://github.com/ev3dev/rpi-kernel.git
 [submodule "bb.org-kernel"]
 	path = bb.org-kernel
-	url = git://github.com/ev3dev/bb.org-kernel
+	url = https://github.com/ev3dev/bb.org-kernel.git
 [submodule "modules/rtl8812au"]
 	path = modules/rtl8812au
 	url = https://github.com/ev3dev/rtl8812AU_8821AU_linux.git
