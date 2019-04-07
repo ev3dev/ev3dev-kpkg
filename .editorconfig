@@ -1,0 +1,5 @@
+root = true
+
+[{*.c,*.h,Makefile}]
+tab_width = 8
+indent_style = tab
