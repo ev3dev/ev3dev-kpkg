@@ -1,3 +1,10 @@
+linux-source-4.19.23-ev3dev-3-beta1-rpi (2) testing; urgency=medium
+
+  * Rebuild using kernel-package 13.018+nmu1evedev2
+  * Suppress "Hmm... symbolic link..." messages during install
+
+ -- David Lechner <david@lechnology.com>  Sun, 03 Mar 2019 20:20:35 -0600
+
 linux-source-4.19.23-ev3dev-3-beta1-rpi (1) testing; urgency=medium
 
   * Rebase on upstream kernel 4.19.23 e2d2941326922b63d722ebc46520c3a2287b675f
