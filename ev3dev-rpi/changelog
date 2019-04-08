@@ -1,3 +1,14 @@
+linux-source-4.14.98-ev3dev-2.3.3-rpi (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.98 (5f4b16e4a8d6d5a69ff526f0bdc973b5b7b008e9)
+  * lego-linux-drivers-2.3.3
+    * brickpi3: drop running flag when holding
+    * brickpi3: fix running to position when delta is < 10 counts
+    * ev3: fix checksum when writing to UART sensors
+    * mindsensors servo controller: fix setting rate_sp
+
+ -- David Lechner <david@lechnology.com>  Sun, 07 Apr 2019 17:24:19 -0500
+
 linux-source-4.14.94-ev3dev-2.3.2-rpi (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.94 (049e03d71027297051bc19499082194ce64cdc91)
