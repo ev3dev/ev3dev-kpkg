@@ -1,3 +1,13 @@
+linux-source-4.14.114-ev3dev-2.3.4-rpi2 (1) stable; urgency=medium
+
+  * Rebase on upstream kernel 4.14.114 (caa653325d58e5062907ec378269e77e6018f2ee)
+  * lego-linux-drivers-2.3.4
+    * EV3: Fix UART sensors not enumerating
+    * BrickPi3: revert fix running to position when delta is < 10 counts
+    * BrickPi3: new fix for running to position when delta is < 10 counts
+
+ -- David Lechner <david@lechnology.com>  Thu, 09 May 2019 15:06:13 -0500
+
 linux-source-4.14.98-ev3dev-2.3.3-rpi2 (1) stable; urgency=medium
 
   * Rebase on upstream kernel 4.14.98 (5f4b16e4a8d6d5a69ff526f0bdc973b5b7b008e9)
