@@ -7,9 +7,6 @@
 [submodule "rpi-kernel"]
 	path = rpi-kernel
 	url = git://github.com/ev3dev/rpi-kernel
-[submodule "bb.org-kernel"]
-	path = bb.org-kernel
-	url = git://github.com/ev3dev/bb.org-kernel
 [submodule "modules/rtl8812au"]
 	path = modules/rtl8812au
 	url = https://github.com/ev3dev/rtl8812AU_8821AU_linux.git

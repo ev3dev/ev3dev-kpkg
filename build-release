@@ -10,12 +10,6 @@ if [ "$FLAVOR" = "ev3" ]; then
     DEBARCH="armel"
     DEFCONFIG="ev3dev_defconfig"
     DPUT_HOST="ev3dev-debian"
-elif [ "$FLAVOR" = "bb.org" ]; then
-    OVERLAY_DIR="ev3dev-bb.org"
-    KERNEL_DIR="bb.org-kernel"
-    DEBARCH="armhf"
-    DEFCONFIG="bb.org_defconfig"
-    DPUT_HOST="ev3dev-debian"
 elif [ "$FLAVOR" = "rpi" ]; then
     OVERLAY_DIR="ev3dev-rpi"
     KERNEL_DIR="rpi-kernel"
@@ -29,7 +23,7 @@ elif [ "$FLAVOR" = "rpi2" ]; then
     DEFCONFIG="bcm2709_defconfig"
     DPUT_HOST="ev3dev-debian"
 else
-    echo "Must specify kernel flavor. FLAVOR={ev3,bb.org,rpi,rpi2}"
+    echo "Must specify kernel flavor. FLAVOR={ev3,rpi,rpi2}"
     exit 1
 fi
 
