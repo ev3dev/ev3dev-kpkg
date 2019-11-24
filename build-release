@@ -2,7 +2,7 @@
 
 set -e
 
-CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+CROSS_COMPILE=/usr/lib/x86_64-linux-gnu/gcc-arm-linux-gnueabihf-8.3/bin/arm-linux-gnueabihf-
 
 if [ "$FLAVOR" = "ev3" ]; then
     OVERLAY_DIR="ev3dev-ev3"
