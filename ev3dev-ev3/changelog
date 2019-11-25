@@ -1,3 +1,18 @@
+linux-source-4.19.85-ev3dev-3-beta2-ev3 (1) buster; urgency=medium
+
+  * Rebase on upstream kernel 4.19.85
+  * Fix I2C always failing with EIO
+  * lego-linux-drivers-3-beta2
+    * Documentation updates
+    * BrickPi3 motor driver fixes
+    * Fix UART sensors not working on EV3
+    * New Mindsensors Time of Flight sensor driver (thanks @spookydonut)
+    * Extend servo position range (thanks @cho934)
+    * Change Mindsensors IMU sensor TILT mode range (breaking change)
+    * Add 4th value to LEGO EV3 Color sensor RGB-RAW mode
+
+ -- David Lechner <david@lechnology.com>  Sun, 24 Nov 2019 15:53:38 -0600
+
 linux-source-4.19.24-ev3dev-3-beta1-ev3 (2) testing; urgency=medium
 
   * Rebuild using kernel-package 13.018+nmu1evedev2
